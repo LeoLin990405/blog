@@ -1,0 +1,38 @@
+title: "Leo's Tech Blog"
+description: "Multi-AI Systems · Agent Orchestration · Open Source"
+author: "Leo Lin | 林中岳"
+url: "https://leolin990405.github.io"
+baseurl: "/blog"
+lang: zh-CN
+
+# Theme
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-feed
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Permalink
+permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Leo Lin"
+
+# Feed
+feed:
+  path: feed.xml
+
+# Exclude
+exclude:
+  - README.md
+  - LICENSE

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+  {% seo %}
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+      <p class="tagline">{{ site.description }}</p>
+      <nav>
+        <a href="{{ '/' | relative_url }}">Home</a> ·
+        <a href="https://github.com/LeoLin990405">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/zhongyue-lin-327143207/">LinkedIn</a>
+      </nav>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.author }} · Powered by <a href="https://pages.github.com">GitHub Pages</a></p>
+    </footer>
+  </div>
+</body>
+</html>
