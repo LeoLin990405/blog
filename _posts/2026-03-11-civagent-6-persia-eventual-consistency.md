@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（六）：波斯总督制——最终一致性的古典实现"
 date: 2026-03-11
 tags: [AI, Multi-Agent, Persian Empire, Eventual Consistency, CivAgent]
+categories: [reading, engineering]
 series: civagent
 ---
 

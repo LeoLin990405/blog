@@ -1,0 +1,38 @@
+---
+layout: default
+title: Categories
+---
+<h2>Categories | 分类</h2>
+
+<div class="category-nav">
+  {% assign cat_labels = "essay:跨学科思考,reading:阅读笔记,engineering:工程实践,learning:学习记录" | split: "," %}
+  {% for label in cat_labels %}
+    {% assign parts = label | split: ":" %}
+    {% assign cat_key = parts[0] %}
+    {% assign cat_name = parts[1] %}
+    {% assign cat_posts = site.categories[cat_key] %}
+    {% if cat_posts %}
+    <a class="tag-link" href="#{{ cat_key }}">{{ cat_name }} ({{ cat_posts.size }})</a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% assign ordered_cats = "essay,reading,engineering,learning" | split: "," %}
+{% assign cat_names = "跨学科思考 Essay,阅读笔记 Reading,工程实践 Engineering,学习记录 Learning" | split: "," %}
+
+{% for i in (0..3) %}
+  {% assign cat_key = ordered_cats[i] %}
+  {% assign cat_name = cat_names[i] %}
+  {% assign cat_posts = site.categories[cat_key] %}
+  {% if cat_posts %}
+<h3 id="{{ cat_key }}">{{ cat_name }}</h3>
+<ul class="post-list">
+  {% for post in cat_posts %}
+  <li>
+    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <div class="post-meta">{{ post.date | date: "%Y-%m-%d" }} · {% for tag in post.tags %}{{ tag }}{% unless forloop.last %}, {% endunless %}{% endfor %}</div>
+  </li>
+  {% endfor %}
+</ul>
+  {% endif %}
+{% endfor %}

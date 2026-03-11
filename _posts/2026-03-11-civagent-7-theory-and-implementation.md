@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（七）：跨学科桥梁、技术实现与认识论反思"
 date: 2026-03-11
 tags: [AI, Multi-Agent, Institutional Economics, Implementation, CivAgent]
+categories: [essay, engineering, learning]
 series: civagent
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（三）：唐代三省六部——质量门控的经典实现"
 date: 2026-03-11
 tags: [AI, Multi-Agent, Tang Dynasty, Quality Gates, CivAgent]
+categories: [reading, engineering]
 series: civagent
 ---
 

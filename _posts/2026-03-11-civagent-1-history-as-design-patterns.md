@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（一）：问题的提出——为什么 AI 编排需要历史学？"
 date: 2026-03-11
 tags: [AI, Multi-Agent, History, Political Science, CivAgent]
+categories: [essay, reading]
 series: civagent
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（二）：六种编排模式的类型学"
 date: 2026-03-11
 tags: [AI, Multi-Agent, History, Orchestration, CivAgent]
+categories: [essay, engineering]
 series: civagent
 ---
 

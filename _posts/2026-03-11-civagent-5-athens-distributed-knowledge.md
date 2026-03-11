@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（五）：雅典民主——分布式知识管理系统"
 date: 2026-03-11
 tags: [AI, Multi-Agent, Athens, Democracy, Ensemble Learning, CivAgent]
+categories: [reading, engineering]
 series: civagent
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "CivAgent 系列（四）：明代双轨制——N-Version Programming 的古典实现"
 date: 2026-03-11
 tags: [AI, Multi-Agent, Ming Dynasty, Dual Power, CivAgent]
+categories: [reading, engineering]
 series: civagent
 ---
 
