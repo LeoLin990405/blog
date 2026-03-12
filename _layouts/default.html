@@ -20,6 +20,13 @@
         <a href="https://github.com/LeoLin990405">GitHub</a> ·
         <a href="https://www.linkedin.com/in/zhongyue-lin-327143207/">LinkedIn</a>
       </nav>
+<script>
+// Apply saved language preference globally
+(function() {
+  var saved = localStorage.getItem('preferred-lang') || 'zh';
+  document.documentElement.setAttribute('data-lang', saved);
+})();
+</script>
     </header>
     <main>
       {{ content }}

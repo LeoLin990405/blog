@@ -154,6 +154,37 @@ nav a:hover { text-decoration: underline; }
   color: var(--accent);
 }
 
+/* Language toggle */
+.post-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.lang-toggle {
+  flex-shrink: 0;
+  background: var(--card);
+  color: var(--accent2);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: 0.3rem;
+}
+.lang-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Bilingual content visibility */
+[data-lang="zh"] .lang-en { display: none !important; }
+[data-lang="en"] .lang-zh { display: none !important; }
+/* Default: show Chinese if no data-lang set */
+:root:not([data-lang]) .lang-en { display: none !important; }
+
 /* Footer */
 footer {
   margin-top: 3rem;

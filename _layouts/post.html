@@ -2,10 +2,23 @@
 layout: default
 ---
 <article class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
-    {{ page.date | date: "%Y-%m-%d" }}
-  </time>
+  <div class="post-header-row">
+    <div>
+      <h1 class="post-title">
+        <span class="lang-zh">{{ page.title }}</span>
+        {% if page.title_en %}<span class="lang-en">{{ page.title_en }}</span>{% endif %}
+      </h1>
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+    </div>
+    {% if page.bilingual %}
+    <button class="lang-toggle" onclick="toggleLang()" title="Switch language">
+      <span class="lang-zh">EN</span>
+      <span class="lang-en">中</span>
+    </button>
+    {% endif %}
+  </div>
   {% if page.tags.size > 0 %}
   <div class="post-tags">
     {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
@@ -17,6 +30,24 @@ layout: default
   </div>
 
   <div class="post-nav">
-    <a href="{{ '/' | relative_url }}">&larr; Back to all posts</a>
+    <a href="{{ '/' | relative_url }}">
+      <span class="lang-zh">&larr; 返回文章列表</span>
+      <span class="lang-en">&larr; Back to all posts</span>
+    </a>
   </div>
 </article>
+
+<script>
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  localStorage.setItem('preferred-lang', lang);
+}
+function toggleLang() {
+  var cur = document.documentElement.getAttribute('data-lang') || 'zh';
+  setLang(cur === 'zh' ? 'en' : 'zh');
+}
+(function() {
+  var saved = localStorage.getItem('preferred-lang') || 'zh';
+  setLang(saved);
+})();
+</script>

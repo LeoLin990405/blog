@@ -1,10 +1,14 @@
 ---
 layout: post
 title: "有限理性的机器——赫伯特·西蒙的理论体系对 AI Agent 设计的深层启示"
+title_en: "Machines of Bounded Rationality — Herbert Simon's Theoretical Legacy for AI Agent Design"
 date: 2026-03-12
 tags: [AI, Agent, Herbert Simon, Bounded Rationality, Cognitive Science, Multi-Agent]
 categories: [essay, reading]
+bilingual: true
 ---
+
+<div class="lang-zh" markdown="1">
 
 > *「一个人的理性是有限的——有限的知识、有限的计算能力、有限的注意力。在这些限制条件下，人们不是寻求最优解，而是寻求'足够好'的解。」*
 > *—— Herbert A. Simon, Administrative Behavior (1947)*
@@ -352,3 +356,356 @@ James March 和西蒙在 1958 年合著的《组织》（*Organizations*）中�
 [14] March, J. G., & Simon, H. A. (1958). *Organizations*. Wiley.
 
 [15] Simon, H. A. (1996). Interview in *Computational Intelligence*, 12(2), 205–216.
+
+</div>
+
+<div class="lang-en" markdown="1">
+
+> *"A man's rationality is bounded — bounded knowledge, bounded computational capacity, bounded attention. Under these constraints, people do not seek the optimal solution but rather a solution that is 'good enough.'"*
+> *— Herbert A. Simon, Administrative Behavior (1947)*
+
+---
+
+Since 2024, AI Agents have become the central paradigm for large language model (LLM) applications. From OpenAI's Function Calling to Anthropic's Tool Use, from AutoGPT to Claude Code, the word "Agent" appears in virtually every AI applications paper and every product launch. Yet when we strip away the technical hype and examine carefully the core challenges facing today's Agent systems — limited context windows, unstable planning capabilities, difficulties in multi-agent coordination, and knowing when to stop searching — we find that nearly all of these problems were systematically studied by one scholar more than half a century ago.
+
+That scholar is Herbert Alexander Simon (1916–2001).
+
+Simon was one of the twentieth century's rare interdisciplinary giants: winner of the 1978 Nobel Prize in Economics and the 1975 Turing Award, he made foundational contributions to political science, psychology, management, artificial intelligence, and cognitive science. His central idea — **bounded rationality** — not only reshaped economics and organizational theory but directly gave rise to several core concepts in modern AI.
+
+This article attempts to systematically survey six theoretical modules in Simon's intellectual system that are most directly relevant to contemporary AI Agent design, to analyze what each module implies for Agent architecture, and to identify which design decisions in current mainstream Agent frameworks are, in essence, (conscious or unconscious) responses to Simon's ideas.
+
+---
+
+## I. Bounded Rationality: The First Principle of Agent Design
+
+### 1.1 From "Economic Man" to "Administrative Man"
+
+Simon's central contribution to economics was a systematic critique of the neoclassical "fully rational economic man" assumption. In his 1947 doctoral dissertation *Administrative Behavior*, Simon argued that real-world decision-makers face three fundamental constraints<sup>[1]</sup>:
+
+1. **Information constraints**: Decision-makers cannot obtain all relevant information.
+2. **Computational constraints**: Even when information is available, decision-makers lack sufficient computational capacity to process all of it.
+3. **Attention constraints**: Human attention is a scarce resource; one cannot attend to all dimensions simultaneously.
+
+Consequently, decision-makers do not **maximize utility** but rather **satisfice** — they search for a solution that meets a minimally acceptable standard and then stop searching.
+
+### 1.2 LLM Agents as Perfect Instances of Bounded Rationality
+
+The correspondence between this theoretical framework and contemporary LLM Agents is almost strikingly precise:
+
+| Simon's Bounded Rationality Constraints | LLM Agent's Corresponding Constraints | Concrete Manifestations |
+|---|---|---|
+| Information constraints | **Limited context window** | Claude 200K tokens, GPT-4 128K tokens — anything beyond is "forgotten" |
+| Computational constraints | **Limited computational budget per inference** | Inference time, token generation rate, and depth of chain reasoning are all constrained |
+| Attention constraints | **Effectively limited range of the attention mechanism** | The "lost-in-the-middle" problem<sup>[2]</sup> — information in the middle of long contexts is ignored |
+
+Liu et al. (2024) empirically demonstrated in their "Lost in the Middle" study that the attention distribution of LLMs follows a U-shaped curve: models are significantly more sensitive to information at the beginning and end of the context than to information in the middle<sup>[2]</sup>. This closely parallels the **primacy effect** and **recency effect** in cognitive psychology — phenomena that Simon had already described in the 1950s when studying human information processing.
+
+### 1.3 Implications for Agent Design: Embracing Limitation
+
+The central lesson of Simon's theory is not "how to overcome limitation" but rather **"how to make sufficiently good decisions under the constraints of limitation."** For Agent design, this means:
+
+**(a) Abandon the illusion of global optimality.** Many Agent frameworks attempt to approximate optimal reasoning paths through Chain-of-Thought or Tree-of-Thought. Simon would point out that when the search space grows exponentially, exhaustive search is itself irrational. Truly rational behavior requires **heuristics** for pruning.
+
+**(b) Design explicit stopping rules.** The heart of satisficing theory is **when to stop searching**. Most current Agent frameworks lack clear stopping criteria — they either terminate passively when the token limit is reached or rely on the model's own "judgment." Simon's theory suggests that Agents should have an **explicit aspiration level**: once a solution meeting that level is found, search should stop.
+
+**(c) Context management is attention management.** In his famous 1971 dictum, Simon wrote: "In an information-rich world, the wealth of information means a dearth of something else — a scarcity of whatever it is that information consumes."<sup>[3]</sup> For Agents, the context window *is* attention. Therefore, **the context management strategy — what information to include in the context, what to summarize, what to discard — is one of the most central design decisions in Agent architecture**, not an engineering detail.
+
+---
+
+## II. Satisficing Search and Agent Planning Strategies
+
+### 2.1 Search as the Basic Mechanism of Decision-Making
+
+In their collaboration from the 1950s through the 1970s, Simon and Allen Newell formalized problem-solving as **search through a problem space**<sup>[4]</sup>. Their core framework consists of:
+
+- **Initial state**: The current description of the problem
+- **Goal state**: The desired outcome
+- **Operators**: Available operations or transformations
+- **Search strategy**: The method for selecting and applying operators
+
+This framework maps directly onto the contemporary Agent paradigm of ReAct (Reasoning + Acting)<sup>[5]</sup>:
+
+| Problem Space Concept | Corresponding Agent Concept |
+|---|---|
+| Initial state | User prompt + current environment state |
+| Goal state | Task completion condition |
+| Operators | Available tools / function calls |
+| Search strategy | LLM reasoning + tool selection logic |
+
+### 2.2 Means-Ends Analysis
+
+The **Means-Ends Analysis (MEA)** proposed by Simon and Newell is their most influential problem-solving strategy<sup>[4]</sup>. The core logic of MEA is:
+
+1. Compare the current state with the goal state and identify the **difference**.
+2. Search for an operator that **reduces this difference**.
+3. If the preconditions of that operator are not satisfied, **recursively** make satisfying those preconditions a subgoal.
+
+This is essentially the same idea as contemporary Agent **hierarchical planning** and **subgoal decomposition**. For example, when Claude Code receives the instruction "refactor this module," its implicit reasoning process is:
+
+```
+Goal: Refactor module X
+Current state: Module X contains functions A, B, C with code duplication
+Difference: Code duplication, high coupling
+Available operators: Read (read files), Edit (edit files), Grep (search patterns), Bash (run tests)
+Subgoal 1: Understand the current code structure (operators: Read, Grep)
+Subgoal 2: Identify duplicate patterns (operator: Grep)
+Subgoal 3: Extract common logic (operator: Edit)
+Subgoal 4: Verify correctness of refactoring (operator: Bash → run tests)
+```
+
+### 2.3 Heuristic Search and "Good Enough" Tool Selection
+
+Simon repeatedly emphasized that in complex problems, exhaustive search is infeasible — **heuristics are a necessary condition for rational behavior**<sup>[6]</sup>.
+
+This has direct implications for Agent tool selection. A core problem facing current Agents is that as the number of available tools increases, the accuracy of tool selection decreases. This is fundamentally a search-space explosion problem. Simon's theory recommends the following strategies:
+
+1. **Recognition-then-act**: In studying chess grandmasters, Simon found that experts do not play chess by means of deep search but through **pattern recognition** — recognizing patterns on the board and retrieving associated moves from memory<sup>[7]</sup>. For Agents, this implies that rather than having the model reason from scratch about tool selection on each call, it is better to use **few-shot examples** or **fine-tuning** to teach the model a mapping from "task pattern → tool sequence."
+
+2. **Attention filtering**: Not all tool descriptions need to be placed in the context. Pre-filtering relevant tools by task type reduces the search space — this is precisely what Simon called "the economics of attention."
+
+---
+
+## III. Near-Decomposability: The Architectural Principle of Multi-Agent Systems
+
+### 3.1 The Hierarchical Structure of Complex Systems
+
+In his landmark 1962 paper "The Architecture of Complexity," Simon advanced a profound observation: **nearly all complex systems exhibit hierarchical structure, and this hierarchical structure possesses near-decomposability**<sup>[8]</sup>.
+
+Near-decomposability means:
+
+- In the **short run**, the behavior of each subsystem within the overall system is approximately **independent**.
+- In the **long run**, the interaction effects between subsystems become significant.
+- The intensity of interactions **within** subsystems is far greater than the intensity of interactions **between** subsystems.
+
+Simon used a famous parable to illustrate the evolutionary advantage of hierarchical structure — **the Watchmaker Parable**<sup>[8]</sup>:
+
+> Two watchmakers each assemble a watch containing 1,000 parts. The first assembles all parts in a single sequence; any interruption causes everything to fall apart and must be started over from scratch. The second designs his watch as 10 sub-assemblies, each containing 10 parts, each part comprising 10 components. Even if interrupted, he need only redo one small section at most. The result: the second watchmaker vastly outperforms the first.
+
+### 3.2 Direct Mapping to Multi-Agent Architecture
+
+The near-decomposability theory provides first-principles guidance for multi-agent system design:
+
+**(a) Task decomposition should follow the principle of near-decomposability.** When breaking a large task into subtasks, the decomposition should minimize **information dependencies** between subtasks. This is not an engineering preference but a deep principle from complex systems theory: near-decomposable systems are more robust and more evolvable.
+
+**(b) The communication topology between Agents should match the dependency structure of the task.** If two subtasks are highly independent (near-decomposable in the short run), the Agents responsible for those subtasks need not communicate frequently. Conversely, if two subtasks are tightly coupled, the corresponding Agents should have low-latency communication channels.
+
+**(c) Hierarchical Agent architecture is not a preference but a necessity.** Simon argued for the universality of hierarchical structure in both evolution and engineering. For multi-agent systems, this implies that **purely flat Agent clusters — where all Agents are fully peer-level — are unlikely to be the optimal architecture for complex tasks**. Instead, some form of hierarchy — coordinator Agents plus executor Agents — is nearly unavoidable.
+
+To draw on my own work with the [CivAgent](https://github.com/LeoLin990405/civagent) project as an example: the architectural mapping of 57 historical polities is, in essence, an exploration of different hierarchical structures and decomposition strategies. The Tang Dynasty's Three Departments and Six Ministries system, with its three-level review process, is a strongly hierarchical near-decomposable structure — the Secretariat drafted, the Chancellery deliberated, and the Department of State Affairs executed, each operating approximately independently within its own sphere of responsibility and interacting only through institutionalized interfaces (vetoes, countersignatures).
+
+### 3.3 The Emergence of Intermediate Levels
+
+Simon noted that in near-decomposable systems, **intermediate levels carry special importance**<sup>[8]</sup>. They provide sufficient abstraction to manage complexity while retaining sufficient detail to carry out specific operations.
+
+The implication for Agent systems is that **intermediate abstraction layers** should exist between user requests and low-level tool calls. The problem with many current Agent frameworks is precisely the absence of this intermediate layer — high-level user intent maps directly to low-level tool calls, with no buffering "planning" or "strategy" layer in between. This is analogous to trying to write an operating system directly in assembly language: theoretically possible, but catastrophic for managing complexity.
+
+ReWOO (Xu et al., 2023)<sup>[9]</sup> and the Plan-and-Execute architecture attempt to address this problem by introducing an explicit planning layer between reasoning and execution. From Simon's theoretical perspective, this is the right direction for establishing an "intermediate level" in Agent systems.
+
+---
+
+## IV. The Sciences of the Artificial and Agents as Designed Artifacts
+
+### 4.1 Natural Science vs. The Sciences of the Artificial
+
+In *The Sciences of the Artificial*, published in 1969, Simon advanced an epistemological framework that has been seriously underappreciated<sup>[10]</sup>:
+
+- **Natural science** studies "what things are."
+- **The sciences of the artificial (design science)** study "what things ought to be" — that is, how to design artifacts to achieve goals.
+
+The defining characteristic of an artifact is that it serves as an **interface** between an **inner environment** (its own structure and mechanisms) and an **outer environment** (the goals and conditions it must satisfy). The behavior of an artifact depends on the interaction among all three:
+
+```
+Outer environment (task requirements, user intent, data)
+        ↕  Interface (the Agent's observable behavior)
+Inner environment (model architecture, parameters, prompts, toolset)
+```
+
+### 4.2 The Interfacial Nature of Agents
+
+This framework has profound implications for Agent design:
+
+**An Agent's "intelligence" is not solely an internal property but the result of the match between its inner and outer environments.** Simon illustrated this point with a famous metaphor: the path an ant traces on a beach appears highly complex, but that complexity derives mainly from the complexity of the beach's surface (the outer environment) rather than from the ant's own complexity (the inner environment)<sup>[10]</sup>.
+
+> "An ant, viewed as a behaving system, is quite simple. The apparent complexity of its behavior over time is largely a reflection of the complexity of the environment in which it finds itself."
+
+By analogy: the "intelligence" an AI Agent exhibits in solving complex programming tasks derives substantially from the **environment** it operates in — the structure of the file system, the organization of the codebase, the interpretability of error messages, the feedback quality of the testing framework. **Consequently, optimizing Agent performance is not solely a matter of optimizing the model itself; it also requires optimizing the environment in which the Agent operates.**
+
+This explains why many of Claude Code's design decisions — such as `CLAUDE.md` files, project-level instructions, and structured tool return values — are fundamentally about **optimizing the outer environment** so that it better matches the Agent's inner capabilities. Similarly, the core value of MCP (Model Context Protocol) lies in **standardizing the interface between Agents and their outer environment**.
+
+### 4.3 Adaptive Behavior and Environment Design
+
+Simon's theory of the sciences of the artificial also implies an important design principle: **rather than trying to build a universal Agent that performs well in all environments, design the environment to match the task category.** This is directly relevant to the ongoing "generalist vs. specialist" debate in the Agent field.
+
+From Simon's perspective, Agent specialization need not reside in the specialization of model parameters; it may instead reside in the specialization of the **toolset, context templates, and evaluation criteria** — that is, the specialization of the outer environment. A "coding Agent" and a "writing Agent" may use exactly the same underlying model but be equipped with different tools, different system prompts, and different stopping criteria.
+
+---
+
+## V. The Economics of Attention and Context Window Management
+
+### 5.1 The Prophecy of Information Overload
+
+In a 1971 lecture, Simon advanced one of his most prescient observations<sup>[3]</sup>:
+
+> *"In an information-rich world, the wealth of information means a dearth of something else: a scarcity of whatever it is that information consumes. What information consumes is rather obvious: it consumes the attention of its recipients. Hence a wealth of information creates a poverty of attention and a need to allocate that attention efficiently among the overabundance of information sources that might consume it."*
+
+These words were written thirty years before the widespread adoption of the internet, yet their applicability to contemporary Agent systems is remarkable.
+
+### 5.2 The Context Window as an Attentional Resource
+
+For LLM Agents, **the context window is the attentional resource**. It is finite, non-renewable within a single inference, and the distribution of information within it directly affects the quality of the Agent's decisions.
+
+Simon's economics-of-attention theory yields the following design principles for context management:
+
+**(a) The value of information lies not in its content but in its marginal contribution to the decision at hand.** This means context management strategies should rank information by its **decision-relevance**, not by its temporal order or the importance of its source. An error log highly relevant to the current subtask carries far more context value than a detailed but presently irrelevant description of system architecture.
+
+**(b) Attention allocation should match the phase of the task.** During the planning phase, the Agent needs macro-level information (project structure, requirements); during the execution phase, it needs micro-level information (specific code, API documentation). The content of the context should **dynamically adjust** as the task progresses through its phases.
+
+**(c) Summarization is the core mechanism of attention management.** Simon noted that information passing upward through hierarchical organizations inevitably undergoes summarization and abstraction<sup>[1]</sup>. By analogy, as an Agent's context approaches the window limit, detailed information from earlier in the conversation should be **replaced by summaries**, retaining only the key conclusions that bear on subsequent decisions. This is precisely the theoretical basis for Claude Code's automatic message compression when conversations approach the context limit.
+
+### 5.3 The Illusion of "Sufficient Information"
+
+Simon's theory also warns against a common Agent design trap: **attempting to pack all potentially relevant information into the context**. This approach appears to be "giving the Agent more information" but may actually **reduce** decision quality — because critical information gets buried in an ocean of irrelevant content.
+
+This is directly relevant to a common problem in RAG (Retrieval-Augmented Generation) systems. Simply increasing the number of retrieved passages (top-k) does not always improve answer quality, because more retrieved results means more competition for attention. Simon's theory suggests: **the central challenge for RAG systems is not to retrieve more information, but to retrieve less — yet more relevant — information.**
+
+---
+
+## VI. Production Systems and the Cognitive Architecture of Agents
+
+### 6.1 From GPS to Production Systems
+
+The **General Problem Solver (GPS)**, developed by Simon and Newell in 1957, was the first program in AI history to explicitly simulate human problem-solving processes<sup>[4]</sup>. GPS used means-ends analysis to search problem spaces, and its architecture was based on **production rules**:
+
+```
+IF  current state matches condition C
+THEN  execute action A
+```
+
+A set of such IF-THEN rules constitutes a **production system**<sup>[11]</sup>. Newell later developed this idea into the more complete cognitive architecture theories of ACT-R and SOAR, which remain among the most influential computational models in cognitive science.
+
+### 6.2 The Production System Legacy in Contemporary Agent Frameworks
+
+The shadow of production systems is visible throughout contemporary Agent frameworks:
+
+| Production System Concept | Contemporary Agent Counterpart |
+|---|---|
+| Production rules (IF-THEN) | Conditional instructions in system prompts ("If the user requests X, use tool Y") |
+| Working memory | Context window |
+| Long-term memory | RAG, vector databases, external knowledge stores |
+| Conflict resolution | Priority logic when multiple instructions apply |
+| Goal stack | The queue of subgoals following task decomposition |
+
+### 6.3 The Modern Revival of Cognitive Architecture
+
+It is worth noting that many concepts presented as "innovations" in current Agent research — such as the self-reflection mechanism in Reflexion (Shinn et al., 2023)<sup>[12]</sup> and the skill library in Voyager (Wang et al., 2023)<sup>[13]</sup> — bear deep structural correspondences to mechanisms that Simon and Newell studied in cognitive architecture decades earlier:
+
+- **Reflexion's self-reflection** ≈ **impasse detection + chunking** in the SOAR architecture: when an Agent encounters an obstacle, it reviews the reasons for failure and generates new rules.
+- **Voyager's skill library** ≈ **procedural memory** in ACT-R: successful action sequences are stored as reusable procedures.
+- **MemGPT's hierarchical memory** ≈ the **interaction between short-term and long-term memory** in human cognition as described by Simon.
+
+This is not coincidence. Simon and Newell were studying the **general structure of intelligent behavior**, and contemporary Agent systems — regardless of whether their underlying technology is symbolic reasoning or neural networks — inevitably face the same structural problems.
+
+---
+
+## VII. Organizational Theory and Multi-Agent Coordination
+
+### 7.1 Organizations as Information-Processing Systems
+
+In *Administrative Behavior* and subsequent works, Simon conceived of organizations as **information-processing systems**<sup>[1]</sup>. The core function of an organization is not to control behavior but to **shape decision premises**. Organizations influence members' decisions through:
+
+- **Authority**: Specifying who has the right to make which kinds of decisions.
+- **Communication channels**: Determining the flow of information.
+- **Organizational identification**: Influencing which goals members favor when facing choices.
+- **Training and indoctrination**: Pre-establishing decision habits and values.
+
+### 7.2 Multi-Agent Systems as Virtual Organizations
+
+Applying this framework to multi-agent systems yields a set of organizational design principles:
+
+**(a) The shared system prompt is the "organizational culture."** A shared system prompt (or `CLAUDE.md` file) establishes unified decision premises for all Agents, just as organizational culture provides a common value foundation for all members.
+
+**(b) Tool permissions are organizational authority.** Which tools different Agents can invoke essentially defines their "scope of authority" within the organization. An Agent with read-only access and one with write access play different roles in the organizational hierarchy — the former is an analyst, the latter an executor.
+
+**(c) Inter-agent communication protocols are the design of organizational communication channels.** Simon observed that the design of communication channels profoundly affects both the quality and speed of organizational decisions<sup>[1]</sup>. In multi-agent systems, how Agents pass information to one another — full text vs. summary, synchronous vs. asynchronous, broadcast vs. point-to-point — is a critical architectural decision affecting overall system performance.
+
+**(d) The trade-off between specialization and coordination.** The core dilemma of organizational design that Simon described — **specialization brings efficiency gains but also increases coordination costs** — exists equally in multi-agent systems. Adding specialized Agents (e.g., a dedicated code-review Agent, a testing Agent, a documentation Agent) can improve the quality of individual tasks but also increases inter-agent coordination overhead. Simon's theory suggests: **the boundaries of specialization should be drawn along the natural fault lines of information dependencies** — which brings us back to the principle of near-decomposability.
+
+### 7.3 The March-Simon Model and Agent Incentive Design
+
+In *Organizations* (1958), co-authored with James March, Simon advanced a model of organizational member behavior<sup>[14]</sup>: a member's participation in an organization depends on the balance between **inducements** and **contributions**.
+
+Although AI Agents have no "motivations," this framework has implications for resource allocation in Agent systems:
+
+- **Inducements** can be analogized to the **computational resources** allocated to an Agent (token budget, tool access).
+- **Contributions** can be analogized to an Agent's **informational contribution** to system goals.
+- The system should dynamically adjust resource allocation based on each Agent's informational contribution — Agents producing high-value outputs receive larger computational budgets and broader tool permissions.
+
+---
+
+## VIII. Conclusion: Simon's Legacy and the Future of Agents
+
+### 8.1 The Forgotten Prophet
+
+The reason Simon's theories are so relevant to contemporary Agent design is that he was not studying any particular technology but rather **the general structure of intelligent behavior under constraints of limited resources**. Whether the vehicle of intelligence is the human brain, a symbolic reasoning program, or a large language model, the following constraints are inescapable:
+
+1. Acquiring information has costs.
+2. Computational capacity is finite.
+3. Attention is a scarce resource.
+4. Complex systems require hierarchical structure to manage complexity.
+5. Search requires heuristics to remain feasible.
+6. Satisficing is usually superior to maximizing.
+
+### 8.2 An Underutilized Theoretical Resource
+
+While the current Agent research community cites computer science literature extensively, it draws notably little on Simon's interdisciplinary contributions. The following directions merit deeper exploration:
+
+1. **Formal application of satisficing theory**: Designing configurable aspiration levels and adaptive stopping rules for Agents, rather than relying on fixed maximum turn counts or token limits.
+2. **Quantitative analysis of near-decomposability**: Developing metrics to evaluate the "decomposability" of task decomposition schemes and using them to optimize multi-agent communication topologies.
+3. **Context management through the economics of attention**: Bringing information theory and attention allocation theory to bear on the design of RAG and context management strategies.
+4. **Agent evaluation under the sciences-of-the-artificial framework**: Shifting Agent performance evaluation from "internal capability testing" to "inner-outer match evaluation" — the performance difference of the same Agent across different environments (toolsets, prompts, feedback mechanisms) may well exceed the performance difference between different Agents in the same environment.
+
+### 8.3 Machines of Bounded Rationality
+
+Let me close with Simon's own words. In a 1996 interview, Simon said<sup>[15]</sup>:
+
+> *"If we have made progress on the road to building intelligent machines, it is because we have finally begun to take the word 'bounded' seriously — not as an obstacle to be overcome, but as a fundamental condition to be adapted to."*
+
+Contemporary AI Agents are the first machines of genuine "bounded rationality" that humanity has built. They face the same categories of constraints as human decision-makers — limited information, limited computation, limited attention. The theoretical framework that Simon devoted his life to studying offers a profoundly underutilized intellectual resource for understanding and improving these machines.
+
+To embrace limitation in the design of Agent systems, rather than to resist it — this may be the most important legacy Simon has left for the age of AI.
+
+---
+
+## References
+
+[1] Simon, H. A. (1947). *Administrative Behavior: A Study of Decision-Making Processes in Administrative Organization*. Macmillan. (4th ed.: 1997, Free Press)
+
+[2] Liu, N. F., Lin, K., Hewitt, J., Paranjape, A., Bevilacqua, M., Petroni, F., & Liang, P. (2024). Lost in the Middle: How Language Models Use Long Contexts. *Transactions of the Association for Computational Linguistics*, 12, 157–173.
+
+[3] Simon, H. A. (1971). Designing Organizations for an Information-Rich World. In M. Greenberger (Ed.), *Computers, Communications, and the Public Interest* (pp. 37–72). Johns Hopkins Press.
+
+[4] Newell, A., & Simon, H. A. (1972). *Human Problem Solving*. Prentice-Hall.
+
+[5] Yao, S., Zhao, J., Yu, D., Du, N., Shafran, I., Narasimhan, K., & Cao, Y. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. In *ICLR 2023*.
+
+[6] Simon, H. A. (1990). Invariants of Human Behavior. *Annual Review of Psychology*, 41, 1–19.
+
+[7] Chase, W. G., & Simon, H. A. (1973). Perception in Chess. *Cognitive Psychology*, 4(1), 55–81.
+
+[8] Simon, H. A. (1962). The Architecture of Complexity. *Proceedings of the American Philosophical Society*, 106(6), 467–482.
+
+[9] Xu, B., Peng, Z., Lei, B., Mukherjee, S., Liu, Y., & Xu, D. (2023). ReWOO: Decoupling Reasoning from Observations for Efficient Augmented Language Models. *arXiv preprint arXiv:2305.18323*.
+
+[10] Simon, H. A. (1969). *The Sciences of the Artificial*. MIT Press. (3rd ed.: 1996)
+
+[11] Newell, A. (1990). *Unified Theories of Cognition*. Harvard University Press.
+
+[12] Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K., & Yao, S. (2023). Reflexion: Language Agents with Verbal Reinforcement Learning. In *NeurIPS 2023*.
+
+[13] Wang, G., Xie, Y., Jiang, Y., Mandlekar, A., Xiao, C., Zhu, Y., Fan, L., & Anandkumar, A. (2023). Voyager: An Open-Ended Embodied Agent with Large Language Models. *arXiv preprint arXiv:2305.16291*.
+
+[14] March, J. G., & Simon, H. A. (1958). *Organizations*. Wiley.
+
+[15] Simon, H. A. (1996). Interview in *Computational Intelligence*, 12(2), 205–216.
+
+</div>
