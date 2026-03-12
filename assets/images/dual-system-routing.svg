@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrDown" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <path d="M0,0 L4,6 L8,0" fill="#8b949e"/>
+    </marker>
+    <marker id="arrDownBlue" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <path d="M0,0 L4,6 L8,0" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrDownPurple" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <path d="M0,0 L4,6 L8,0" fill="#6C63FF"/>
+    </marker>
+    <marker id="arrDownGreen" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <path d="M0,0 L4,6 L8,0" fill="#3fb950"/>
+    </marker>
+    <marker id="arrLeftRed" markerWidth="6" markerHeight="8" refX="0" refY="4" orient="auto">
+      <path d="M6,0 L0,4 L6,8" fill="#f85149"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="12" fill="#0d1117"/>
+
+  <!-- Input Request -->
+  <rect x="280" y="14" width="160" height="36" rx="8" fill="#161b22" stroke="#8b949e" stroke-width="1.5"/>
+  <text x="360" y="37" font-size="14" font-weight="600" fill="#c9d1d9" text-anchor="middle">Input Request</text>
+
+  <!-- Arrow down to router -->
+  <line x1="360" y1="50" x2="360" y2="72" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrDown)"/>
+
+  <!-- Metacognitive Router -->
+  <rect x="195" y="74" width="330" height="56" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="360" y="98" font-size="15" font-weight="700" fill="#d29922" text-anchor="middle">Metacognitive Router</text>
+  <text x="360" y="118" font-size="11" fill="#8b949e" text-anchor="middle">Task complexity + Risk assessment + Confidence check</text>
+
+  <!-- Branching arrows -->
+  <line x1="280" y1="130" x2="180" y2="165" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrDownBlue)"/>
+  <line x1="440" y1="130" x2="540" y2="165" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#arrDownPurple)"/>
+
+  <!-- System 1 Fast Path -->
+  <rect x="50" y="168" width="260" height="175" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <rect x="50" y="168" width="260" height="40" rx="10" fill="#58a6ff" opacity="0.12"/>
+  <rect x="50" y="196" width="260" height="12" fill="#161b22"/>
+  <!-- Lightning -->
+  <path d="M86 182 L80 192 L86 190 L83 200 L92 186 L86 188 Z" fill="#58a6ff"/>
+  <text x="100" y="195" font-size="15" font-weight="700" fill="#58a6ff">System 1 — Fast Path</text>
+
+  <circle cx="82" cy="228" r="3" fill="#58a6ff" opacity="0.5"/>
+  <text x="94" y="233" font-size="13" fill="#c9d1d9">Direct answer</text>
+
+  <circle cx="82" cy="254" r="3" fill="#58a6ff" opacity="0.5"/>
+  <text x="94" y="259" font-size="13" fill="#c9d1d9">Cache hit</text>
+
+  <circle cx="82" cy="280" r="3" fill="#58a6ff" opacity="0.5"/>
+  <text x="94" y="285" font-size="13" fill="#c9d1d9">Template match</text>
+
+  <!-- Cost label -->
+  <rect x="170" y="310" width="130" height="24" rx="6" fill="#58a6ff" opacity="0.1"/>
+  <text x="235" y="327" font-size="11" font-weight="600" fill="#58a6ff" text-anchor="middle">Low latency, Low cost</text>
+
+  <!-- System 2 Slow Path -->
+  <rect x="410" y="168" width="260" height="175" rx="10" fill="#161b22" stroke="#6C63FF" stroke-width="2"/>
+  <rect x="410" y="168" width="260" height="40" rx="10" fill="#6C63FF" opacity="0.12"/>
+  <rect x="410" y="196" width="260" height="12" fill="#161b22"/>
+  <!-- Gear -->
+  <circle cx="446" cy="188" r="8" fill="none" stroke="#6C63FF" stroke-width="1.5"/>
+  <circle cx="446" cy="188" r="3" fill="#6C63FF" opacity="0.4"/>
+  <text x="462" y="195" font-size="15" font-weight="700" fill="#6C63FF">System 2 — Slow Path</text>
+
+  <circle cx="442" cy="228" r="3" fill="#6C63FF" opacity="0.5"/>
+  <text x="454" y="233" font-size="13" fill="#c9d1d9">Chain-of-Thought</text>
+
+  <circle cx="442" cy="254" r="3" fill="#6C63FF" opacity="0.5"/>
+  <text x="454" y="259" font-size="13" fill="#c9d1d9">Tool calls</text>
+
+  <circle cx="442" cy="280" r="3" fill="#6C63FF" opacity="0.5"/>
+  <text x="454" y="285" font-size="13" fill="#c9d1d9">Multi-Agent / Reflexion</text>
+
+  <!-- Cost label -->
+  <rect x="420" y="310" width="140" height="24" rx="6" fill="#6C63FF" opacity="0.1"/>
+  <text x="490" y="327" font-size="11" font-weight="600" fill="#6C63FF" text-anchor="middle">High latency, High cost</text>
+
+  <!-- Converge arrows down -->
+  <line x1="180" y1="343" x2="300" y2="370" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#arrDownGreen)"/>
+  <line x1="540" y1="343" x2="420" y2="370" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#arrDownGreen)"/>
+
+  <!-- Output box -->
+  <rect x="250" y="372" width="220" height="36" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="360" y="395" font-size="14" font-weight="600" fill="#3fb950" text-anchor="middle">Output + Confidence Score</text>
+
+  <!-- Fallback dashed line: from output back to System 2 -->
+  <path d="M 470 390 Q 690 390 690 280 Q 690 170 670 168" stroke="#f85149" stroke-width="1.2" stroke-dasharray="5,4" fill="none" marker-end="url(#arrLeftRed)"/>
+  <text x="692" y="286" font-size="10" fill="#f85149" transform="rotate(-90, 692, 286)" text-anchor="middle">Fallback if confidence low</text>
+</svg>
