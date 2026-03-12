@@ -2,15 +2,105 @@
 layout: default
 title: Home
 ---
-<ul class="post-list">
-  {% for post in site.posts %}
-  <li>
-    <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <div class="post-meta">{{ post.date | date: "%Y-%m-%d" }}{% if post.categories.size > 0 %} · {% for cat in post.categories %}<span class="category-label">{{ cat }}</span>{% unless forloop.last %} {% endunless %}{% endfor %}{% endif %}</div>
-    {% if post.excerpt %}<div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
-  </li>
-  {% endfor %}
-</ul>
+
+<!-- Hero: Interdisciplinary Identity -->
+<section class="hero">
+  <div class="lang-zh">
+    <p class="hero-text">用<span class="highlight">历史学</span>、<span class="highlight">行为经济学</span>、<span class="highlight">政治学</span>和<span class="highlight">组织理论</span>的视角，重新理解 AI Agent 的架构设计。</p>
+    <p class="hero-sub">每一篇文章都是一次跨学科对话——在人类数千年的制度智慧与前沿 AI 系统之间搭建桥梁。</p>
+  </div>
+  <div class="lang-en">
+    <p class="hero-text">Rethinking AI Agent architecture through <span class="highlight">History</span>, <span class="highlight">Behavioral Economics</span>, <span class="highlight">Political Science</span>, and <span class="highlight">Organization Theory</span>.</p>
+    <p class="hero-sub">Each essay is an interdisciplinary dialogue — bridging millennia of institutional wisdom with cutting-edge AI systems.</p>
+  </div>
+</section>
+
+<!-- Discipline Map -->
+<section class="discipline-map">
+  <div class="discipline-tags">
+    <span class="disc-tag" data-disc="history">History</span>
+    <span class="disc-tag" data-disc="economics">Economics</span>
+    <span class="disc-tag" data-disc="polisci">Political Science</span>
+    <span class="disc-tag" data-disc="cs">Computer Science</span>
+    <span class="disc-tag" data-disc="org">Organization Theory</span>
+    <span class="disc-tag" data-disc="psych">Cognitive Psychology</span>
+  </div>
+</section>
+
+<!-- Featured Series -->
+{% assign series_posts = site.posts | where: "series", "civagent" | sort: "date" %}
+{% if series_posts.size > 0 %}
+<section class="series-section">
+  <h2 class="section-title">
+    <span class="lang-zh">CivAgent 系列 · 历史学 × AI 编排</span>
+    <span class="lang-en">CivAgent Series · History × AI Orchestration</span>
+  </h2>
+  <p class="section-desc">
+    <span class="lang-zh">将人类 5000 年政治制度史映射为 AI 多 Agent 协作架构 — 57 种政体，6 种编排模式</span>
+    <span class="lang-en">Mapping 5,000 years of political institutions to AI multi-agent architectures — 57 polities, 6 orchestration modes</span>
+  </p>
+  <div class="series-grid">
+    {% for post in series_posts %}
+    <a class="series-card" href="{{ post.url | relative_url }}">
+      <span class="series-num">{{ forloop.index }}</span>
+      <span class="series-title lang-zh">{{ post.title | remove: "CivAgent 系列（" | remove: "）" | split: "：" | last }}</span>
+      {% if post.title_en %}
+      <span class="series-title lang-en">{{ post.title_en | remove: "CivAgent Series (" | remove: ")" | split: ": " | last }}</span>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<!-- Standalone Essays -->
+{% assign standalone = site.posts | where_exp: "p", "p.series == nil" %}
+{% if standalone.size > 0 %}
+<section class="essays-section">
+  <h2 class="section-title">
+    <span class="lang-zh">独立文章</span>
+    <span class="lang-en">Standalone Essays</span>
+  </h2>
+  <ul class="post-list">
+    {% for post in standalone %}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="lang-zh">{{ post.title }}</span>
+        {% if post.title_en %}<span class="lang-en">{{ post.title_en }}</span>{% endif %}
+      </a>
+      <div class="post-meta">
+        {{ post.date | date: "%Y-%m-%d" }}
+        {% if post.categories.size > 0 %} · {% for cat in post.categories %}<span class="category-label">{{ cat }}</span>{% unless forloop.last %} {% endunless %}{% endfor %}{% endif %}
+      </div>
+      {% if post.excerpt %}<div class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</div>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
+<!-- All Posts (chronological) -->
+<section class="all-posts-section">
+  <h2 class="section-title">
+    <span class="lang-zh">全部文章</span>
+    <span class="lang-en">All Posts</span>
+  </h2>
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <span class="lang-zh">{{ post.title }}</span>
+        {% if post.title_en %}<span class="lang-en">{{ post.title_en }}</span>{% endif %}
+      </a>
+      <div class="post-meta">
+        {{ post.date | date: "%Y-%m-%d" }}
+        {% if post.series %} · <span class="series-badge">{{ post.series }}</span>{% endif %}
+        {% if post.categories.size > 0 %} · {% for cat in post.categories %}<span class="category-label">{{ cat }}</span>{% unless forloop.last %} {% endunless %}{% endfor %}{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
 
 {% if site.posts.size == 0 %}
 <p>Coming soon...</p>

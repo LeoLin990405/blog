@@ -185,6 +185,139 @@ nav a:hover { text-decoration: underline; }
 /* Default: show Chinese if no data-lang set */
 :root:not([data-lang]) .lang-en { display: none !important; }
 
+/* ========== Homepage ========== */
+
+/* Hero */
+.hero {
+  margin-bottom: 2.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.hero-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+.hero-text .highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+.hero-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Discipline Map */
+.discipline-map {
+  margin-bottom: 2.5rem;
+}
+.discipline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.disc-tag {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  background: var(--card);
+  transition: all 0.2s;
+}
+.disc-tag[data-disc="history"]  { border-color: #d29922; color: #d29922; }
+.disc-tag[data-disc="economics"] { border-color: #3fb950; color: #3fb950; }
+.disc-tag[data-disc="polisci"]  { border-color: #58a6ff; color: #58a6ff; }
+.disc-tag[data-disc="cs"]      { border-color: #6C63FF; color: #6C63FF; }
+.disc-tag[data-disc="org"]     { border-color: #bc8cff; color: #bc8cff; }
+.disc-tag[data-disc="psych"]   { border-color: #f85149; color: #f85149; }
+
+/* Section titles */
+.section-title {
+  font-size: 1.3rem;
+  color: var(--fg);
+  margin-bottom: 0.4rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.section-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Series grid */
+.series-section {
+  margin-bottom: 2.5rem;
+}
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+.series-card {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.series-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.series-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.series-title {
+  line-height: 1.3;
+}
+
+/* Series badge in post list */
+.series-badge {
+  display: inline-block;
+  background: rgba(108, 99, 255, 0.15);
+  color: var(--accent);
+  padding: 0.05rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Essays section */
+.essays-section {
+  margin-bottom: 2.5rem;
+}
+
+/* All posts section */
+.all-posts-section {
+  margin-bottom: 2rem;
+}
+
 /* Footer */
 footer {
   margin-top: 3rem;
