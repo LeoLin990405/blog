@@ -1,11 +1,15 @@
 ---
 layout: post
 title: "CivAgent 系列（一）：问题的提出——为什么 AI 编排需要历史学？"
+title_en: "CivAgent Series (I): Why AI Orchestration Needs History"
 date: 2026-03-11
 tags: [AI, Multi-Agent, History, Political Science, CivAgent]
 categories: [essay, reading]
 series: civagent
+bilingual: true
 ---
+
+<div class="lang-zh" markdown="1">
 
 > *「任何一个制度之建立，必有其当时的需要，亦必有其当时的用意。我们不能用后代的眼光来批评前代的制度。」*
 > *—— 钱穆《中国历代政治得失》*
@@ -139,3 +143,142 @@ Wooldridge 和 Jennings（1995）在其经典综述中指出，MAS 的核心问�
 [9] Huntington, S. P. (1968). *Political Order in Changing Societies*. New Haven: Yale University Press.
 
 </small>
+
+</div>
+
+<div class="lang-en" markdown="1">
+
+> *"The establishment of any institution necessarily arose from the needs and intentions of its time. We cannot judge the institutions of earlier eras by the standards of later generations."*
+> *-- Qian Mu, "China's Political Gains and Losses Across the Dynasties" (中国历代政治得失)*
+
+**Series navigation**: [I: Posing the Question](./) · [II: Six Orchestration Modes](/blog/2026/03/11/civagent-2-six-orchestration-modes/) · [III: The Tang Three-Department System](/blog/2026/03/11/civagent-3-tang-dynasty-quality-gates/) · [IV: The Ming Dual-Track System](/blog/2026/03/11/civagent-4-ming-dynasty-dual-power/) · [V: Athenian Democracy](/blog/2026/03/11/civagent-5-athens-distributed-knowledge/) · [VI: The Persian Satrap System](/blog/2026/03/11/civagent-6-persia-eventual-consistency/) · [VII: Theory and Implementation](/blog/2026/03/11/civagent-7-theory-and-implementation/)
+
+---
+
+Today I open-sourced [CivAgent](https://github.com/LeoLin990405/CivAgent) -- a project that maps 57 classic polities from human history onto AI multi-agent collaboration architectures. This seven-part series systematically investigates a severely underestimated question: **In an era of rapidly advancing large language models and multi-agent systems, what unique, irreplaceable intellectual contributions can history -- especially institutional history and comparative politics -- make to AI system design?**
+
+My answer: history provides a "library of organizational architecture design patterns" that has been validated by millennia of human experience, and this pattern library has direct, actionable relevance to contemporary AI multi-agent orchestration.
+
+---
+
+## I. The Architectural Dilemma of Multi-Agent Systems
+
+### 1.1 The "Bipolarization" Trap in MAS Research
+
+A long-standing core challenge in Multi-Agent Systems (MAS) research is: **How should we design the communication topology and decision protocols among agents?**
+
+Wooldridge and Jennings (1995) identified in their seminal survey that the core problems of MAS lie in coordination, cooperation, and conflict resolution<sup>[1]</sup>. Thirty years later, these problems remain unsatisfactorily solved. Dorri et al. (2018), in a more recent survey, classified MAS architectures into centralized, distributed, and hybrid, yet conceded that most existing research either assumes a fully centralized coordinator or a fully peer-to-peer distributed structure<sup>[2]</sup>.
+
+This "bipolarization" is a serious oversimplification. Real-world organizational architectures -- whether in human societies or biological systems -- almost never occupy either extreme. A beehive has a queen, yet worker bees possess a high degree of autonomy; a military has a chain of command, yet front-line commanders retain the authority to make field decisions; a multinational corporation has headquarters, yet regional subsidiaries hold local decision-making power. Between the two poles lies a vast, underexplored design space.
+
+### 1.2 New Variables in the LLM Era
+
+This "architecture selection" problem has become even more acute in the age of LLM agents. In traditional MAS research, the capability boundaries of agents were relatively clear -- a path-planning agent could never suddenly perform natural language processing. But LLM agents are inherently "omni-capable": Claude can both write code and review code; GPT can both translate and reason; Gemini can both analyze images and generate front-end code.
+
+When we have multiple AI models available for orchestration -- Claude, GPT, Gemini, DeepSeek, Kimi, Qwen, and others -- the question is no longer "who can do what," but rather **"who should do what, how should information flow among them, and who has the authority to make final decisions."**
+
+These questions -- role assignment, information flow, decision authority, review mechanisms, fault tolerance -- are precisely the questions that human political institutions have been answering for millennia.
+
+### 1.3 Why Not Just Use Organization Theory?
+
+A reasonable objection: since management science and organization theory have studied organizational structure for decades, why return to ancient political institutions?
+
+Three reasons:
+
+**First, temporal span.** Management science primarily studies organizational forms since the Industrial Revolution (roughly 200 years). Institutional history, however, covers over 6,000 years of institutional experimentation, from Sumerian city-states (c. 4500 BC) to the European Union (1993--present). A longer temporal span means more diverse environmental conditions and more extreme stress tests.
+
+**Second, failure samples.** Management research suffers from severe survivorship bias -- we primarily study successful companies, while failed ones are quickly forgotten. But history naturally contains an abundance of failure cases, and these failures are extensively documented. The Qin dynasty's collapse within two generations, Poland's partition and extinction, the Taiping Heavenly Kingdom's disintegration -- each failure is a precious "postmortem report," recording the conditions under which a particular organizational architecture collapses.
+
+**Third, extreme conditions.** The operating environment of political institutions is far harsher than that of business organizations -- war, famine, rebellion, foreign invasion, plague. Institutional performance under such extreme conditions is rarely addressed in business school case studies. Yet AI systems may equally face extreme conditions -- massive concurrency, cascading failures, adversarial attacks -- making the lessons from political institutions that endured extreme conditions especially valuable.
+
+---
+
+## II. Institutional History as a "Library of Architecture Design Patterns"
+
+### 2.1 Qian Mu's Theory of Institutional Evolution: The Longitudinal Perspective
+
+In his *China's Political Gains and Losses Across the Dynasties* (《中国历代政治得失》, 1952), Qian Mu systematically analyzed the political institutions of five dynasties: Han, Tang, Song, Ming, and Qing<sup>[3]</sup>. This slim volume (under 100,000 characters) was my entry point into institutional history and the most fundamental inspiration for CivAgent.
+
+Qian Mu's methodology was not to simply evaluate institutions as good or bad, but to pursue questions at three levels:
+
+1. **What problem did this institutional system solve?** (Design intent)
+2. **What new problems did it reveal in operation?** (Side effects)
+3. **How did the next generation of institutions respond to those new problems?** (Iterative evolution)
+
+He identified an "iterative pattern" running throughout Chinese institutional history:
+
+**First iteration: From Qin-Han to Tang**
+
+The Three Excellencies and Nine Ministers (三公九卿) system established by Qin Shi Huang was the first mature central bureaucratic system in Chinese history. The Chancellor administered all officials, the Censor-in-Chief handled oversight, and the Grand Commandant managed military affairs -- three top-level nodes with clear division of labor. The problem, however, was that **the Chancellor held excessive power**. From Xiao He and Cao Can in the early Han onward, the Chancellor could effectively sideline the Emperor. Emperor Wu of Han responded by creating the "Inner Court" (内朝) -- an informal decision-making circle centered on the Master of Documents (尚书令), bypassing the Chancellor's formal Outer Court -- essentially a **bypass attack**, using informal channels to circumvent bottlenecks in the formal system.
+
+By the Tang dynasty, this bypass was formally institutionalized as the Three Departments and Six Ministries system (see [Part III: The Tang Three-Department System](/blog/2026/03/11/civagent-3-tang-dynasty-quality-gates/)).
+
+**Second iteration: From Tang to Song**
+
+What was the problem with the Tang Three Departments system? **The Chancellery's (门下省) veto power was too strong, reducing decision-making efficiency.** By the late Tang, the Secretariat and Chancellery merged into a single office, and the checks and balances of the three departments were effectively hollowed out.
+
+The Song dynasty's response took a different approach: rather than restoring the independence of the three departments, it **dispersed power from the "institutional" level to the "functional" level** -- the Secretariat-Chancellery handled administration, the Bureau of Military Affairs managed military matters, and the Three Fiscal Commissions controlled finance. Professor Deng Xiaonan, in her *Ancestral Regulations* (《祖宗之法》), analyzed in depth the design logic of this "Two Offices and Three Commissions" system<sup>[4]</sup>: the core concern was not efficiency but **stability**. It ensured that no single institution simultaneously controlled administrative, military, and fiscal power -- equivalent in distributed systems terminology to the **Principle of Least Privilege**.
+
+**Third iteration: From Song to Ming**
+
+Ming Taizu Zhu Yuanzhang made a radical decision: **abolish the Chancellorship entirely, with the Emperor directly managing the Six Ministries.** The result was catastrophic information overload. The Grand Secretariat was then created as a remedy, forming a distinctive dual-track system (see [Part IV: The Ming Dual-Track System](/blog/2026/03/11/civagent-4-ming-dynasty-dual-power/)).
+
+**Fourth iteration: The Qing Grand Council**
+
+The Yongzheng Emperor created the Grand Council (军机处) -- an extremely small (3--6 persons), extremely fast (memorials processed the same day), and extremely secretive decision-making body. It was essentially a **fast path** -- bypassing all checks and balances for high-priority matters. In network engineering terms, it is equivalent to **quality of service (QoS)**. But the cost was that everything depended on the Emperor's personal ability<sup>[5]</sup>.
+
+### 2.2 The Cross-Civilizational Perspective of Comparative Politics: Horizontal Comparison
+
+If Qian Mu provided the longitudinal evolutionary perspective within Chinese civilization, then comparative politics provides a cross-civilizational horizontal comparative perspective.
+
+Eisenstadt, in *The Political Systems of Empires* (1963), systematically compared the political structures of major empires throughout human history<sup>[6]</sup>. His core finding was that different empires, when confronting similar fundamental problems, developed **functionally equivalent yet structurally divergent** institutional solutions due to differences in cultural traditions, geographic conditions, and economic models.
+
+Perry Anderson, in *Lineages of the Absolutist State* (1974), further argued<sup>[7]</sup>: **behind superficially similar "centralization" lie entirely different logics of power operation.** The French absolute monarch was still constrained by the nobility's seigneurial rights and parliamentary traditions, while the Chinese emperor faced a civil bureaucracy produced by the examination system -- two fundamentally different forms of countervailing power.
+
+### 2.3 Fukuyama's Three Dimensions → Three Trade-offs of Agent Orchestration
+
+Francis Fukuyama, in *The Origins of Political Order* (2011), proposed three dimensions for understanding any political system<sup>[8]</sup>:
+
+| Political Dimension | AI Orchestration Dimension | Metrics | Cost of Extremes |
+|---------------------|---------------------------|---------|------------------|
+| State capacity | **Execution efficiency** | Task completion latency, throughput | Single point of failure, no error correction (Qin collapsed in two generations) |
+| Rule of law | **Error prevention** | Output quality, consistency, safety | Decision paralysis, excessive redundancy (Song's bloated bureaucracy and military) |
+| Democratic accountability | **Breadth of participation** | Information aggregation, diversity | Consensus cost too high (Poland's partition and extinction) |
+
+These three form an "impossible triangle" -- precisely the core tension that Huntington repeatedly emphasized in *Political Order in Changing Societies*<sup>[9]</sup>. CivAgent's 57 polities represent 57 different answers that human history has given to this "impossible triangle."
+
+---
+
+**Next**: [CivAgent Series (II): A Typology of Six Orchestration Modes](/blog/2026/03/11/civagent-2-six-orchestration-modes/) -- distilling 6 core orchestration modes from 57 polities, in dialogue with Mintzberg's organization theory and MAS research.
+
+---
+
+**Project repository**: [github.com/LeoLin990405/CivAgent](https://github.com/LeoLin990405/CivAgent)
+
+---
+
+## References
+
+<small>
+
+[1] Wooldridge, M. & Jennings, N. R. (1995). "Intelligent Agents: Theory and Practice." *The Knowledge Engineering Review*, 10(2), 115-152.
+
+[2] Dorri, A., Kanhere, S. S., & Jurdak, R. (2018). "Multi-Agent Systems: A Survey." *IEEE Access*, 6, 28573-28593.
+
+[3] Qian Mu (1952). *China's Political Gains and Losses Across the Dynasties* [中国历代政治得失]. Taipei: Dongda Books.
+
+[4] Deng Xiaonan (2006). *Ancestral Regulations: A Political Account of the Early Northern Song* [祖宗之法：北宋前期政治述略]. Beijing: SDX Joint Publishing.
+
+[5] Dai Yi, ed. (1984). *A Concise History of the Qing Dynasty* [简明清史] (2 vols.). Beijing: People's Publishing House.
+
+[6] Eisenstadt, S. N. (1963). *The Political Systems of Empires: The Rise and Fall of the Historical Bureaucratic Societies*. New York: Free Press.
+
+[7] Anderson, P. (1974). *Lineages of the Absolutist State*. London: New Left Books.
+
+[8] Fukuyama, F. (2011). *The Origins of Political Order: From Prehuman Times to the French Revolution*. New York: Farrar, Straus and Giroux.
+
+[9] Huntington, S. P. (1968). *Political Order in Changing Societies*. New Haven: Yale University Press.
+
+</small>
+
+</div>
