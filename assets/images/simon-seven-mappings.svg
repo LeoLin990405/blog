@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 580" width="720" fill="none">
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6C63FF"/>
+    </marker>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="100%" stop-color="#6C63FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="580" rx="12" fill="#0d1117"/>
+  <rect x="1" y="1" width="718" height="578" rx="12" fill="none" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#c9d1d9">Simon's Seven Theories → AI Agent Concepts</text>
+  <text x="360" y="56" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#8b949e">A Systematic Mapping of Half a Century's Rediscovery</text>
+
+  <!-- Column headers -->
+  <text x="145" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#58a6ff" font-weight="700">Simon's Theory</text>
+  <text x="575" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#6C63FF" font-weight="700">AI Agent Concept</text>
+
+  <!-- Row 1: Bounded Rationality → Context Window -->
+  <rect x="30" y="100" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Bounded Rationality</text>
+  <text x="145" y="137" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Information + Compute + Attention limits</text>
+
+  <line x1="260" y1="124" x2="448" y2="124" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="100" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="120" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Context Window Limits</text>
+  <text x="575" y="137" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Token budget, lost-in-the-middle</text>
+
+  <!-- Row 2: Satisficing → Good-Enough Threshold -->
+  <rect x="30" y="162" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Satisficing Search</text>
+  <text x="145" y="199" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Stop when "good enough" is found</text>
+
+  <line x1="260" y1="186" x2="448" y2="186" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="162" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="182" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Stopping Rules / Beam Width</text>
+  <text x="575" y="199" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Aspiration level, early termination</text>
+
+  <!-- Row 3: Near-Decomposability → Modular Agent Teams -->
+  <rect x="30" y="224" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Near-Decomposability</text>
+  <text x="145" y="261" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Hierarchical modular systems</text>
+
+  <line x1="260" y1="248" x2="448" y2="248" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="224" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="244" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Multi-Agent Teams</text>
+  <text x="575" y="261" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Orchestrator + specialist agents</text>
+
+  <!-- Row 4: Sciences of the Artificial → Environment Design -->
+  <rect x="30" y="286" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Sciences of the Artificial</text>
+  <text x="145" y="323" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Inner/outer environment interface</text>
+
+  <line x1="260" y1="310" x2="448" y2="310" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="286" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="306" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Tool + Prompt Design</text>
+  <text x="575" y="323" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">MCP, CLAUDE.md, system prompts</text>
+
+  <!-- Row 5: Attention Economics → Context Management -->
+  <rect x="30" y="348" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Attention Economics</text>
+  <text x="145" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Scarcity of attention, not information</text>
+
+  <line x1="260" y1="372" x2="448" y2="372" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="348" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="368" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">RAG + Context Management</text>
+  <text x="575" y="385" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Retrieval filtering, summarization</text>
+
+  <!-- Row 6: Production Systems → Agent Cognitive Architecture -->
+  <rect x="30" y="410" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Production Systems</text>
+  <text x="145" y="447" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">GPS, SOAR, IF-THEN rules</text>
+
+  <line x1="260" y1="434" x2="448" y2="434" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="410" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Reflexion / Skill Libraries</text>
+  <text x="575" y="447" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Working memory, procedural memory</text>
+
+  <!-- Row 7: Organizational Theory → Multi-Agent Coordination -->
+  <rect x="30" y="472" width="230" height="48" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="145" y="492" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Organizational Theory</text>
+  <text x="145" y="509" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Decision premises, authority, channels</text>
+
+  <line x1="260" y1="496" x2="448" y2="496" stroke="url(#arrowGrad)" stroke-width="1.8" marker-end="url(#arrow3)"/>
+
+  <rect x="460" y="472" width="230" height="48" rx="8" fill="#161b22" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="575" y="492" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6C63FF" font-weight="600">Agent Roles + Protocols</text>
+  <text x="575" y="509" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tool permissions, communication design</text>
+
+  <!-- Chapter numbers on the left edge -->
+  <text x="18" y="128" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">I</text>
+  <text x="18" y="190" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">II</text>
+  <text x="18" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">III</text>
+  <text x="18" y="314" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">IV</text>
+  <text x="18" y="376" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">V</text>
+  <text x="18" y="438" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">VI</text>
+  <text x="18" y="500" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">VII</text>
+
+  <!-- Bottom annotation -->
+  <text x="360" y="548" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" font-style="italic">Seven independent rediscoveries of Simon's framework — and the open questions he left behind (Ch. VIII).</text>
+  <text x="360" y="565" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" font-style="italic">"Stop groping in the places he already illuminated; concentrate on the regions he marked as dark."</text>
+</svg>

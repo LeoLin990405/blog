@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" width="720" height="560" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="dot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6">
+      <circle cx="5" cy="5" r="4" fill="#6C63FF"/>
+    </marker>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="560" rx="12" fill="#0d1117"/>
+  <rect x="1" y="1" width="718" height="558" rx="11" fill="none" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="42" text-anchor="middle" fill="#c9d1d9" font-size="16" font-weight="600">Fukuyama's Impossible Triangle / 福山不可能三角</text>
+
+  <!-- Triangle vertices: top=360,100  bottom-left=120,440  bottom-right=600,440 -->
+
+  <!-- Triangle edges with glow -->
+  <polygon points="360,110 120,440 600,440" fill="none" stroke="#6C63FF" stroke-width="2.5" opacity="0.3" filter="url(#glow)"/>
+  <polygon points="360,110 120,440 600,440" fill="none" stroke="#6C63FF" stroke-width="2"/>
+
+  <!-- Subtle fill -->
+  <polygon points="360,110 120,440 600,440" fill="#6C63FF" opacity="0.04"/>
+
+  <!-- Vertex circles -->
+  <circle cx="360" cy="110" r="8" fill="#6C63FF" opacity="0.9"/>
+  <circle cx="120" cy="440" r="8" fill="#58a6ff" opacity="0.9"/>
+  <circle cx="600" cy="440" r="8" fill="#58a6ff" opacity="0.9"/>
+
+  <!-- Top vertex label: State Capacity -->
+  <text x="360" y="80" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="600">State Capacity</text>
+  <text x="360" y="96" text-anchor="middle" fill="#8b949e" font-size="11">Execution Efficiency / 执行效率</text>
+
+  <!-- Bottom-left vertex label: Rule of Law -->
+  <text x="120" y="468" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="600">Rule of Law</text>
+  <text x="120" y="484" text-anchor="middle" fill="#8b949e" font-size="11">Error Prevention / 错误预防</text>
+
+  <!-- Bottom-right vertex label: Democratic Accountability -->
+  <text x="600" y="468" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="600">Democratic Accountability</text>
+  <text x="600" y="484" text-anchor="middle" fill="#8b949e" font-size="11">Participation Breadth / 参与广度</text>
+
+  <!-- Edge labels (midpoints) -->
+  <text x="220" y="260" text-anchor="middle" fill="#8b949e" font-size="10" transform="rotate(-35, 220, 260)">Centralized Control</text>
+  <text x="500" y="260" text-anchor="middle" fill="#8b949e" font-size="10" transform="rotate(35, 500, 260)">Legitimacy</text>
+  <text x="360" y="458" text-anchor="middle" fill="#8b949e" font-size="10">Constraint &amp; Inclusion</text>
+
+  <!-- Example polities positioned inside the triangle -->
+
+  <!-- Qin: near top (high state capacity, low law & accountability) -->
+  <circle cx="355" cy="195" r="5" fill="#f97583"/>
+  <text x="375" y="192" fill="#f97583" font-size="13" font-weight="600">Qin / 秦</text>
+  <text x="375" y="207" fill="#8b949e" font-size="10">Max centralization</text>
+
+  <!-- Song: near bottom-left (high rule of law, lower efficiency) -->
+  <circle cx="230" cy="370" r="5" fill="#79c0ff"/>
+  <text x="250" y="367" fill="#79c0ff" font-size="13" font-weight="600">Song / 宋</text>
+  <text x="250" y="382" fill="#8b949e" font-size="10">Stability over speed</text>
+
+  <!-- Athens: near bottom-right (high participation, lower state capacity) -->
+  <circle cx="480" cy="370" r="5" fill="#56d364"/>
+  <text x="430" y="355" fill="#56d364" font-size="13" font-weight="600">Athens / 雅典</text>
+  <text x="430" y="370" fill="#8b949e" font-size="10">Direct democracy</text>
+
+  <!-- Tang: balanced center-left -->
+  <circle cx="310" cy="290" r="4" fill="#d2a8ff"/>
+  <text x="256" y="288" fill="#d2a8ff" font-size="12" font-weight="500">Tang / 唐</text>
+  <text x="256" y="302" fill="#8b949e" font-size="9">Three-dept balance</text>
+
+  <!-- Persia: center-top-right -->
+  <circle cx="420" cy="260" r="4" fill="#ffa657"/>
+  <text x="440" y="258" fill="#ffa657" font-size="12" font-weight="500">Persia / 波斯</text>
+  <text x="440" y="272" fill="#8b949e" font-size="9">Satrap delegation</text>
+
+  <!-- Caption -->
+  <text x="360" y="530" text-anchor="middle" fill="#8b949e" font-size="11">Every polity occupies a different position in this trade-off space</text>
+  <text x="360" y="546" text-anchor="middle" fill="#8b949e" font-size="11">每种政体在这个权衡空间中占据不同位置</text>
+</svg>

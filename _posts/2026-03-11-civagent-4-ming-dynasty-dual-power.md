@@ -40,6 +40,8 @@ bilingual: true
          └─────────┘
 ```
 
+![Ming Dual-Track System]({{ '/assets/images/civagent4-dual-track.svg' | relative_url }})
+
 ---
 
 ## 双轨运作的精度
@@ -181,6 +183,8 @@ After Emperor Zhu Yuanzhang (Hongwu Emperor) abolished the position of Chancello
             │  (Execution)   │
             └────────────┘
 ```
+
+![Ming Dual-Track System]({{ '/assets/images/civagent4-dual-track.svg' | relative_url }})
 
 ---
 

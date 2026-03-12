@@ -24,6 +24,8 @@ bilingual: true
 
 ## 一、跨学科的理论桥梁
 
+![Interdisciplinary Theory Bridge]({{ '/assets/images/civagent7-theory-bridge.svg' | relative_url }})
+
 ### 1.1 有限理性与制度设计
 
 赫伯特·西蒙在《管理行为》（1947）中提出的「有限理性」（bounded rationality）概念<sup>[1]</sup>可以完美解释为什么不同的政体在不同情境下各有优劣——没有一个 Agent（或人类决策者）能够获得完全信息并做出最优决策，因此制度设计的核心就是**在信息不完全的约束下，设计出最有效的决策流程**。
@@ -273,6 +275,8 @@ The final installment in the series. The preceding six articles completed the ar
 ---
 
 ## I. Interdisciplinary Theoretical Bridges
+
+![Interdisciplinary Theory Bridge]({{ '/assets/images/civagent7-theory-bridge.svg' | relative_url }})
 
 ### 1.1 Bounded Rationality and Institutional Design
 

@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#58a6ff" stroke-width="1"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#d29922" stroke-width="1"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#3fb950" stroke-width="1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="400" fill="#0d1117" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="32" text-anchor="middle" fill="#c9d1d9" font-size="16" font-weight="600">Three Communication Protocols of the Persian Empire</text>
+  <text x="360" y="50" text-anchor="middle" fill="#8b949e" font-size="11">波斯帝国三种通信协议</text>
+
+  <!-- King of Kings node (top-right) -->
+  <rect x="590" y="70" width="110" height="52" rx="6" fill="#161b22" stroke="#6C63FF" stroke-width="2"/>
+  <text x="645" y="90" text-anchor="middle" fill="#6C63FF" font-size="11" font-weight="700">King of Kings</text>
+  <text x="645" y="106" text-anchor="middle" fill="#8b949e" font-size="9">万王之王</text>
+  <text x="645" y="118" text-anchor="middle" fill="#8b949e" font-size="8">Central Coordinator</text>
+
+  <!-- === LAYER 1: Royal Road (Fast Path) === -->
+  <rect x="20" y="80" width="540" height="80" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1" opacity="0.7"/>
+  <text x="36" y="100" fill="#58a6ff" font-size="12" font-weight="600">1. Royal Road (Fast Path)</text>
+  <text x="36" y="114" fill="#8b949e" font-size="9">王道 — 专用高速通信链路</text>
+
+  <!-- Road line with relay stations -->
+  <line x1="50" y1="140" x2="530" y2="140" stroke="#58a6ff" stroke-width="2.5" filter="url(#glow)"/>
+  <!-- Relay stations (dots) -->
+  <circle cx="50" cy="140" r="5" fill="#58a6ff" stroke="#0d1117" stroke-width="1.5"/>
+  <text x="50" y="155" text-anchor="middle" fill="#8b949e" font-size="7">Susa</text>
+  <circle cx="130" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="190" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="250" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="310" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="370" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="430" cy="140" r="3.5" fill="#58a6ff" opacity="0.7"/>
+  <circle cx="530" cy="140" r="5" fill="#58a6ff" stroke="#0d1117" stroke-width="1.5"/>
+  <text x="530" y="155" text-anchor="middle" fill="#8b949e" font-size="7">Sardis</text>
+
+  <!-- Speed label -->
+  <rect x="220" y="122" width="100" height="16" rx="3" fill="#58a6ff" opacity="0.15"/>
+  <text x="270" y="133" text-anchor="middle" fill="#58a6ff" font-size="9" font-weight="600">7 days vs 90 days</text>
+
+  <!-- 111 stations label -->
+  <text x="290" y="155" text-anchor="middle" fill="#8b949e" font-size="8">111 relay stations / 2,700 km</text>
+
+  <!-- Connection to King -->
+  <line x1="530" y1="130" x2="590" y2="96" stroke="#58a6ff" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-blue)"/>
+
+  <!-- Cost label -->
+  <text x="568" y="148" text-anchor="end" fill="#58a6ff" font-size="9" opacity="0.8">High infra cost</text>
+
+  <!-- === LAYER 2: King's Eyes & Ears (Random Audit) === -->
+  <rect x="20" y="170" width="540" height="90" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1" opacity="0.7"/>
+  <text x="36" y="190" fill="#d29922" font-size="12" font-weight="600">2. King's Eyes &amp; Ears (Random Audit)</text>
+  <text x="36" y="204" fill="#8b949e" font-size="9">王之耳目 — 异步健康检查</text>
+
+  <!-- Satrapy boxes -->
+  <rect x="50" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="78" y="234" text-anchor="middle" fill="#8b949e" font-size="8">Satrap A</text>
+  <rect x="130" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="158" y="234" text-anchor="middle" fill="#8b949e" font-size="8">Satrap B</text>
+  <rect x="210" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#d29922" stroke-width="1.5"/>
+  <text x="238" y="234" text-anchor="middle" fill="#d29922" font-size="8">Satrap C</text>
+  <rect x="290" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="318" y="234" text-anchor="middle" fill="#8b949e" font-size="8">Satrap D</text>
+  <rect x="370" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#d29922" stroke-width="1.5"/>
+  <text x="398" y="234" text-anchor="middle" fill="#d29922" font-size="8">Satrap E</text>
+  <rect x="450" y="215" width="56" height="30" rx="3" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="478" y="234" text-anchor="middle" fill="#8b949e" font-size="8">Satrap F</text>
+
+  <!-- Eye icons (inspectors) pointing to random satrapies -->
+  <!-- Eye 1 → Satrap C -->
+  <g transform="translate(200, 208)">
+    <ellipse cx="0" cy="0" rx="6" ry="4" fill="none" stroke="#d29922" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="2" fill="#d29922"/>
+  </g>
+  <line x1="206" y1="208" x2="230" y2="215" stroke="#d29922" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Eye 2 → Satrap E -->
+  <g transform="translate(420, 208)">
+    <ellipse cx="0" cy="0" rx="6" ry="4" fill="none" stroke="#d29922" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="2" fill="#d29922"/>
+  </g>
+  <line x1="414" y1="208" x2="398" y2="215" stroke="#d29922" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- "Random & Unpredictable" label -->
+  <text x="310" y="252" text-anchor="middle" fill="#d29922" font-size="8" font-style="italic">? Random &amp; Unpredictable inspection ?</text>
+
+  <!-- Connection to King -->
+  <line x1="530" y1="210" x2="590" y2="108" stroke="#d29922" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-orange)"/>
+
+  <!-- Cost label -->
+  <text x="568" y="240" text-anchor="end" fill="#d29922" font-size="9" opacity="0.8">Low cost</text>
+
+  <!-- === LAYER 3: Annual Tribute (Heartbeat) === -->
+  <rect x="20" y="270" width="540" height="80" rx="4" fill="#161b22" stroke="#21262d" stroke-width="1" opacity="0.7"/>
+  <text x="36" y="290" fill="#3fb950" font-size="12" font-weight="600">3. Annual Tribute (Heartbeat)</text>
+  <text x="36" y="304" fill="#8b949e" font-size="9">年度贡赋 — 心跳协议</text>
+
+  <!-- Heartbeat / pulse line -->
+  <polyline points="50,330 80,330 90,330 95,315 100,345 105,315 110,345 115,330 145,330 175,330 180,315 185,345 190,315 195,345 200,330 230,330 260,330 265,315 270,345 275,315 280,345 285,330 315,330 345,330 350,315 355,345 360,315 365,345 370,330 400,330 430,330 435,315 440,345 445,315 450,345 455,330 485,330 530,330"
+    fill="none" stroke="#3fb950" stroke-width="2" filter="url(#glow)"/>
+
+  <!-- Pulse labels -->
+  <text x="115" y="350" text-anchor="middle" fill="#3fb950" font-size="7" opacity="0.7">Year 1</text>
+  <text x="200" y="350" text-anchor="middle" fill="#3fb950" font-size="7" opacity="0.7">Year 2</text>
+  <text x="285" y="350" text-anchor="middle" fill="#3fb950" font-size="7" opacity="0.7">Year 3</text>
+  <text x="370" y="350" text-anchor="middle" fill="#3fb950" font-size="7" opacity="0.7">Year 4</text>
+  <text x="455" y="350" text-anchor="middle" fill="#3fb950" font-size="7" opacity="0.7">Year 5</text>
+
+  <!-- "Normal = No intervention" -->
+  <text x="290" y="343" text-anchor="middle" fill="#3fb950" font-size="8" font-style="italic">Tribute on time = Province healthy</text>
+
+  <!-- Connection to King -->
+  <line x1="530" y1="310" x2="590" y2="118" stroke="#3fb950" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow-green)"/>
+
+  <!-- Cost label -->
+  <text x="568" y="330" text-anchor="end" fill="#3fb950" font-size="9" opacity="0.8">Minimal cost</text>
+
+  <!-- Right-side cost bracket -->
+  <line x1="575" y1="140" x2="575" y2="335" stroke="#21262d" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="575" y="375" text-anchor="middle" fill="#8b949e" font-size="8">Monitoring Cost</text>
+  <text x="575" y="386" text-anchor="middle" fill="#8b949e" font-size="8">Decreasing ↓</text>
+</svg>

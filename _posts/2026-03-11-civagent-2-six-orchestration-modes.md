@@ -17,6 +17,8 @@ bilingual: true
 
 [上一篇](/blog/2026/03/11/civagent-1-history-as-design-patterns/)我们建立了核心论点：人类 5000 年的政治制度史是一部经过极端条件压力测试的「组织架构设计模式库」。本篇从 57 种政体中提炼出 6 种核心编排模式。
 
+![Six Orchestration Modes Overview]({{ '/assets/images/civagent2-six-modes-overview.svg' | relative_url }})
+
 这 6 种模式并非随意归纳，而是经过了三重理论验证：
 
 1. **政治学传统**：与亚里士多德《政治学》以来 2400 年政体分类学传统的对话<sup>[1]</sup>
@@ -295,6 +297,8 @@ Kemp（2018）对古埃及的研究表明<sup>[21]</sup>：法老的「神性」
 ---
 
 In the [previous post](/blog/2026/03/11/civagent-1-history-as-design-patterns/), we established our core thesis: humanity's 5,000-year history of political institutions constitutes a stress-tested "design pattern library" for organizational architecture. In this post, we distill six core orchestration modes from 57 historical polities.
+
+![Six Orchestration Modes Overview]({{ '/assets/images/civagent2-six-modes-overview.svg' | relative_url }})
 
 These six modes are not arbitrary generalizations; they have been validated through a threefold theoretical triangulation:
 

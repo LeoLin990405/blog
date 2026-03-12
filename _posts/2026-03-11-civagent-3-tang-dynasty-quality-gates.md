@@ -25,22 +25,7 @@ bilingual: true
 
 三省六部制的架构：
 
-```
-用户请求
-   │
-   ▼
-┌─────────┐    起草      ┌─────────┐   审核    ┌─────────┐
-│  中书省  │ ──────────→ │  门下省  │ ───────→ │  尚书省  │
-│ (Draft)  │             │ (Review) │          │(Execute) │
-│          │ ←────────── │          │          │          │
-│          │   驳回重拟   │          │          │    │     │
-└─────────┘             └─────────┘          └────┬────┘
-                                                   │
-                          ┌───┬───┬───┬───┬───┬───┘
-                          ▼   ▼   ▼   ▼   ▼   ▼
-                         吏  户  礼  兵  刑  工
-                         部  部  部  部  部  部
-```
+![唐代三省六部架构图]({{ '/assets/images/civagent3-three-departments.svg' | relative_url }})
 
 这套设计的精妙之处在于：**起草权、审核权、执行权被分离到三个独立的机构**，任何一个环节都无法独自完成整个决策流程。
 
@@ -171,23 +156,7 @@ Emperor Taizong of Tang, Li Shimin (r. 626--649), was the true architect who per
 
 The architecture of the Three Departments and Six Ministries:
 
-```
-User Request
-   |
-   v
-+-----------+    Draft     +-----------+   Review   +-----------+
-| Secretariat| ----------> | Chancellery| --------> | Dept. of  |
-|  (Draft)   |             |  (Review)  |           |State Affairs
-|            | <----------- |            |           | (Execute) |
-|            |  Reject &    |            |           |     |     |
-+-----------+  Redraft     +-----------+           +-----+-----+
-                                                         |
-                          +---+---+---+---+---+----------+
-                          v   v   v   v   v   v
-                        Per- Rev- Rit- War  Jus- Works
-                        son- enue ual       tice
-                        nel
-```
+![Tang Three Departments Architecture]({{ '/assets/images/civagent3-three-departments.svg' | relative_url }})
 
 The elegance of this design lies in the fact that **the powers of drafting, reviewing, and executing were separated into three independent institutions** -- no single link in the chain could complete the entire decision-making process on its own.
 

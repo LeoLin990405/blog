@@ -53,6 +53,8 @@ Briant（2002）的研究表明<sup>[1]</sup>，波斯的答案是**分层自治
 
 ## 三种通信协议
 
+![波斯帝国三种通信协议]({{ '/assets/images/civagent6-three-protocols.svg' | relative_url }})
+
 波斯帝国的治理智慧体现在三种精心设计的监控机制中：
 
 ### 1. 王道（Royal Road）——专用高速通信链路
@@ -227,6 +229,8 @@ Briant's (2002) research demonstrates<sup>[1]</sup> that Persia's answer was **l
 ---
 
 ## Three Communication Protocols
+
+![Persian Three Communication Protocols]({{ '/assets/images/civagent6-three-protocols.svg' | relative_url }})
 
 The governance wisdom of the Persian Empire is embodied in three carefully designed monitoring mechanisms:
 

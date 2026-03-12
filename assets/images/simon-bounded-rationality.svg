@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" fill="none">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6C63FF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="12" fill="#0d1117"/>
+  <rect x="1" y="1" width="718" height="418" rx="12" fill="none" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#c9d1d9">Bounded Rationality</text>
+  <text x="360" y="58" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#8b949e">Herbert Simon's Core Framework</text>
+
+  <!-- Brain icon (center) -->
+  <circle cx="260" cy="210" r="52" fill="#161b22" stroke="#6C63FF" stroke-width="2"/>
+  <circle cx="260" cy="210" r="48" fill="none" stroke="#6C63FF" stroke-width="1" opacity="0.3"/>
+  <!-- Simplified brain paths -->
+  <path d="M240 190 Q250 180 260 185 Q270 180 280 190" stroke="#6C63FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M235 205 Q250 195 260 200 Q270 195 285 205" stroke="#6C63FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M238 220 Q250 210 260 215 Q270 210 282 220" stroke="#6C63FF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M242 235 Q252 225 260 230 Q268 225 278 235" stroke="#6C63FF" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <text x="260" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9" font-weight="600">Decision</text>
+  <text x="260" y="263" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9" font-weight="600">Maker</text>
+
+  <!-- Constraint Wall 1: Top-left -->
+  <rect x="100" y="90" width="140" height="42" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="170" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Limited</text>
+  <text x="170" y="124" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Information</text>
+  <!-- Constraint line to brain -->
+  <line x1="190" y1="132" x2="240" y2="168" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <!-- Constraint Wall 2: Left -->
+  <rect x="60" y="190" width="140" height="42" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="130" y="208" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Limited</text>
+  <text x="130" y="224" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Computation</text>
+  <!-- Constraint line -->
+  <line x1="200" y1="211" x2="208" y2="210" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <!-- Constraint Wall 3: Bottom-left -->
+  <rect x="100" y="300" width="140" height="42" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="170" y="318" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Limited</text>
+  <text x="170" y="334" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#58a6ff" font-weight="600">Time / Attention</text>
+  <!-- Constraint line -->
+  <line x1="190" y1="300" x2="240" y2="255" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+
+  <!-- Arrow from brain to right side -->
+  <line x1="312" y1="210" x2="420" y2="210" stroke="#6C63FF" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <text x="366" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e">therefore</text>
+
+  <!-- Satisficing box (right side, highlighted) -->
+  <rect x="435" y="160" width="220" height="100" rx="10" fill="#161b22" stroke="#6C63FF" stroke-width="2" filter="url(#glow)"/>
+  <text x="545" y="192" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#6C63FF" font-weight="700">Satisficing</text>
+  <text x="545" y="212" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">"Good enough" solution</text>
+  <text x="545" y="228" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">then stop searching</text>
+  <text x="545" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" font-style="italic">not optimizing</text>
+
+  <!-- Crossed-out "Optimizing" below -->
+  <text x="545" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#8b949e" opacity="0.5" text-decoration="line-through">Maximizing / Optimizing</text>
+  <line x1="470" y1="297" x2="620" y2="297" stroke="#8b949e" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Bottom annotation -->
+  <text x="360" y="390" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" font-style="italic">Simon (1947): Real decision-makers face fundamental constraints that make optimization impossible.</text>
+  <text x="360" y="405" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" font-style="italic">LLM Agents face the same constraints: limited context, limited compute, limited attention.</text>
+</svg>
