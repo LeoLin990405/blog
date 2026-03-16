@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #c9d1d9; }
+      .title { font-size: 13px; font-weight: 600; }
+      .label { font-size: 10px; fill: #8b949e; }
+      .small { font-size: 8.5px; fill: #8b949e; }
+      .highlight { font-size: 10px; font-weight: 600; }
+      .cell-bg { rx: 8; ry: 8; }
+    </style>
+    <marker id="arr" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#8b949e"/>
+    </marker>
+    <marker id="arr-accent" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#6C63FF"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="360" fill="#0d1117" rx="12"/>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" class="title" font-size="14">ABM Paradigm Shift: From Rule-Based to LLM-Driven Agents</text>
+
+  <!-- Phase 1: Traditional ABM -->
+  <rect x="30" y="55" width="200" height="250" fill="#161b22" class="cell-bg" stroke="#30363d" stroke-width="1"/>
+  <text x="130" y="78" text-anchor="middle" class="title" fill="#f85149">Phase 1: Traditional ABM</text>
+  <text x="130" y="95" text-anchor="middle" class="small">1971 — 2022</text>
+
+  <!-- Rule-based agents -->
+  <rect x="55" y="110" width="150" height="30" fill="#21262d" rx="6"/>
+  <text x="130" y="129" text-anchor="middle" class="label">if-then Rules</text>
+
+  <rect x="55" y="150" width="150" height="30" fill="#21262d" rx="6"/>
+  <text x="130" y="169" text-anchor="middle" class="label">Utility Functions</text>
+
+  <rect x="55" y="190" width="150" height="30" fill="#21262d" rx="6"/>
+  <text x="130" y="209" text-anchor="middle" class="label">RL Policies</text>
+
+  <text x="130" y="245" text-anchor="middle" class="small" fill="#f85149">No language</text>
+  <text x="130" y="260" text-anchor="middle" class="small" fill="#f85149">No memory</text>
+  <text x="130" y="275" text-anchor="middle" class="small" fill="#f85149">No reasoning</text>
+  <text x="130" y="292" text-anchor="middle" class="small">NetLogo / Mesa / MASON</text>
+
+  <!-- Arrow 1 -->
+  <line x1="235" y1="180" x2="265" y2="180" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Phase 2: GABM -->
+  <rect x="270" y="55" width="200" height="250" fill="#161b22" class="cell-bg" stroke="#6C63FF" stroke-width="1.5"/>
+  <text x="370" y="78" text-anchor="middle" class="title" fill="#6C63FF">Phase 2: GABM</text>
+  <text x="370" y="95" text-anchor="middle" class="small">2023 — present</text>
+
+  <!-- LLM-driven agents -->
+  <rect x="295" y="110" width="150" height="30" fill="#1c1e3a" rx="6"/>
+  <text x="370" y="129" text-anchor="middle" class="highlight" fill="#6C63FF">Natural Language</text>
+
+  <rect x="295" y="150" width="150" height="30" fill="#1c1e3a" rx="6"/>
+  <text x="370" y="169" text-anchor="middle" class="highlight" fill="#6C63FF">Episodic Memory</text>
+
+  <rect x="295" y="190" width="150" height="30" fill="#1c1e3a" rx="6"/>
+  <text x="370" y="209" text-anchor="middle" class="highlight" fill="#6C63FF">Reflection + Planning</text>
+
+  <text x="370" y="245" text-anchor="middle" class="small" fill="#3fb950">Open-ended dialogue</text>
+  <text x="370" y="260" text-anchor="middle" class="small" fill="#3fb950">Novel behaviors emerge</text>
+  <text x="370" y="275" text-anchor="middle" class="small" fill="#3fb950">Qualitative reasoning</text>
+  <text x="370" y="292" text-anchor="middle" class="small">Concordia / AgentTorch</text>
+
+  <!-- Arrow 2 -->
+  <line x1="475" y1="180" x2="505" y2="180" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Scale box -->
+  <rect x="510" y="55" width="185" height="250" fill="#161b22" class="cell-bg" stroke="#30363d" stroke-width="1"/>
+  <text x="602" y="78" text-anchor="middle" class="title" fill="#d29922">Scale Explosion</text>
+  <text x="602" y="95" text-anchor="middle" class="small">2023 — 2025</text>
+
+  <!-- Scale entries -->
+  <text x="530" y="125" class="label">2023</text>
+  <rect x="575" y="112" width="25" height="16" fill="#6C63FF" rx="3"/>
+  <text x="608" y="125" class="small" fill="#c9d1d9">25 agents</text>
+
+  <text x="530" y="155" class="label">2024</text>
+  <rect x="575" y="142" width="50" height="16" fill="#58a6ff" rx="3"/>
+  <text x="633" y="155" class="small" fill="#c9d1d9">1,052</text>
+
+  <text x="530" y="185" class="label">2024</text>
+  <rect x="575" y="172" width="80" height="16" fill="#3fb950" rx="3"/>
+  <text x="663" y="185" class="small" fill="#c9d1d9">1M</text>
+
+  <text x="530" y="215" class="label">2025</text>
+  <rect x="575" y="202" width="105" height="16" fill="#d29922" rx="3"/>
+  <text x="688" y="215" class="small" fill="#c9d1d9">8.4M</text>
+
+  <text x="602" y="250" text-anchor="middle" class="small">6 orders of magnitude</text>
+  <text x="602" y="265" text-anchor="middle" class="small">in 2 years</text>
+
+  <!-- Bottom labels -->
+  <text x="130" y="325" text-anchor="middle" class="small">Schelling, Epstein</text>
+  <text x="370" y="325" text-anchor="middle" class="small">Stanford, DeepMind</text>
+  <text x="602" y="325" text-anchor="middle" class="small">MIT, Tsinghua, KAUST</text>
+
+  <!-- Bottom line -->
+  <line x1="50" y1="340" x2="680" y2="340" stroke="#30363d" stroke-width="0.5"/>
+  <text x="360" y="355" text-anchor="middle" class="small" fill="#8b949e">From mathematical functions to language-capable autonomous entities</text>
+</svg>

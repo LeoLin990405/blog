@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #c9d1d9; }
+      .title { font-size: 13px; font-weight: 600; }
+      .label { font-size: 10px; }
+      .small { font-size: 8.5px; fill: #8b949e; }
+      .cell-bg { rx: 10; ry: 10; }
+    </style>
+  </defs>
+
+  <rect width="720" height="400" fill="#0d1117" rx="12"/>
+  <text x="360" y="30" text-anchor="middle" class="title" font-size="14">GABM Application Domains</text>
+
+  <!-- Epidemiology -->
+  <rect x="30" y="55" width="155" height="160" fill="#161b22" class="cell-bg" stroke="#f85149" stroke-width="1.5"/>
+  <circle cx="107" cy="85" r="16" fill="#1c1015" stroke="#f85149" stroke-width="1"/>
+  <text x="107" y="90" text-anchor="middle" font-size="16">🦠</text>
+  <text x="107" y="115" text-anchor="middle" class="label" fill="#f85149" font-weight="600">Epidemiology</text>
+  <text x="107" y="135" text-anchor="middle" class="small">AgentTorch (MIT)</text>
+  <text x="107" y="150" text-anchor="middle" class="small">8.4M agents — NYC</text>
+  <text x="107" y="165" text-anchor="middle" class="small">COVID-19 digital twin</text>
+  <text x="107" y="180" text-anchor="middle" class="small">NZ H5N1 response</text>
+  <text x="107" y="200" text-anchor="middle" class="small" fill="#f85149">AAMAS 2025 Oral</text>
+
+  <!-- Economics -->
+  <rect x="200" y="55" width="155" height="160" fill="#161b22" class="cell-bg" stroke="#3fb950" stroke-width="1.5"/>
+  <circle cx="277" cy="85" r="16" fill="#0d1a12" stroke="#3fb950" stroke-width="1"/>
+  <text x="277" y="90" text-anchor="middle" font-size="16">📊</text>
+  <text x="277" y="115" text-anchor="middle" class="label" fill="#3fb950" font-weight="600">Economics</text>
+  <text x="277" y="135" text-anchor="middle" class="small">EconAgent (Tsinghua)</text>
+  <text x="277" y="150" text-anchor="middle" class="small">Macro work/consumption</text>
+  <text x="277" y="165" text-anchor="middle" class="small">AgentSociety: UBI test</text>
+  <text x="277" y="180" text-anchor="middle" class="small">10K agents, 5M interactions</text>
+  <text x="277" y="200" text-anchor="middle" class="small" fill="#3fb950">ACL 2024</text>
+
+  <!-- Political Polarization -->
+  <rect x="370" y="55" width="155" height="160" fill="#161b22" class="cell-bg" stroke="#58a6ff" stroke-width="1.5"/>
+  <circle cx="447" cy="85" r="16" fill="#0d1520" stroke="#58a6ff" stroke-width="1"/>
+  <text x="447" y="90" text-anchor="middle" font-size="16">🗳️</text>
+  <text x="447" y="115" text-anchor="middle" class="label" fill="#58a6ff" font-weight="600">Polarization</text>
+  <text x="447" y="135" text-anchor="middle" class="small">OASIS (CAMEL-AI)</text>
+  <text x="447" y="150" text-anchor="middle" class="small">1M social media agents</text>
+  <text x="447" y="165" text-anchor="middle" class="small">FlockVote: 2024 election</text>
+  <text x="447" y="180" text-anchor="middle" class="small">Echo chamber dynamics</text>
+  <text x="447" y="200" text-anchor="middle" class="small" fill="#58a6ff">COLING 2025</text>
+
+  <!-- Social Norms -->
+  <rect x="540" y="55" width="155" height="160" fill="#161b22" class="cell-bg" stroke="#d29922" stroke-width="1.5"/>
+  <circle cx="617" cy="85" r="16" fill="#1a1508" stroke="#d29922" stroke-width="1"/>
+  <text x="617" y="90" text-anchor="middle" font-size="16">🤝</text>
+  <text x="617" y="115" text-anchor="middle" class="label" fill="#d29922" font-weight="600">Social Norms</text>
+  <text x="617" y="135" text-anchor="middle" class="small">IJCAI 2024</text>
+  <text x="617" y="150" text-anchor="middle" class="small">Norms emerge w/o code</text>
+  <text x="617" y="165" text-anchor="middle" class="small">Cooperation + punishment</text>
+  <text x="617" y="180" text-anchor="middle" class="small">Personality divergence</text>
+  <text x="617" y="200" text-anchor="middle" class="small" fill="#d29922">Spontaneous emergence</text>
+
+  <!-- Bottom: Methodological Challenges -->
+  <rect x="30" y="235" width="665" height="145" fill="#161b22" class="cell-bg" stroke="#30363d" stroke-width="1"/>
+  <text x="360" y="260" text-anchor="middle" class="title" fill="#8b949e">Core Methodological Challenges</text>
+
+  <!-- Challenge boxes -->
+  <rect x="50" y="275" width="120" height="50" fill="#21262d" rx="6" stroke="#f85149" stroke-width="1"/>
+  <text x="110" y="296" text-anchor="middle" class="label" fill="#f85149">Validation</text>
+  <text x="110" y="312" text-anchor="middle" class="small">209-paper review:</text>
+  <text x="110" y="323" text-anchor="middle" class="small">"central unsolved"</text>
+
+  <rect x="185" y="275" width="120" height="50" fill="#21262d" rx="6" stroke="#d29922" stroke-width="1"/>
+  <text x="245" y="296" text-anchor="middle" class="label" fill="#d29922">Emergence vs</text>
+  <text x="245" y="312" text-anchor="middle" class="label" fill="#d29922">Reproduction</text>
+  <text x="245" y="323" text-anchor="middle" class="small">New knowledge or</text>
+
+  <rect x="320" y="275" width="120" height="50" fill="#21262d" rx="6" stroke="#58a6ff" stroke-width="1"/>
+  <text x="380" y="296" text-anchor="middle" class="label" fill="#58a6ff">Reproducibility</text>
+  <text x="380" y="312" text-anchor="middle" class="small">Stochastic LLMs</text>
+  <text x="380" y="323" text-anchor="middle" class="small">API version drift</text>
+
+  <rect x="455" y="275" width="120" height="50" fill="#21262d" rx="6" stroke="#3fb950" stroke-width="1"/>
+  <text x="515" y="296" text-anchor="middle" class="label" fill="#3fb950">Cost at Scale</text>
+  <text x="515" y="312" text-anchor="middle" class="small">1M API calls/step</text>
+  <text x="515" y="323" text-anchor="middle" class="small">LLM Archetypes fix</text>
+
+  <rect x="590" y="275" width="90" height="50" fill="#21262d" rx="6" stroke="#6C63FF" stroke-width="1"/>
+  <text x="635" y="296" text-anchor="middle" class="label" fill="#6C63FF">Bias</text>
+  <text x="635" y="312" text-anchor="middle" class="small">Stereotypes</text>
+  <text x="635" y="323" text-anchor="middle" class="small">over accuracy</text>
+
+  <text x="360" y="393" text-anchor="middle" class="small" fill="#8b949e">Source: Systematic review of 209 papers (Artificial Intelligence Review, Springer, 2025)</text>
+</svg>

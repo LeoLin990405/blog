@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; fill: #c9d1d9; }
+      .title { font-size: 13px; font-weight: 600; }
+      .label { font-size: 10px; }
+      .small { font-size: 8.5px; fill: #8b949e; }
+    </style>
+    <marker id="ar" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#6C63FF"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="340" fill="#0d1117" rx="12"/>
+  <text x="360" y="28" text-anchor="middle" class="title" font-size="14">Classic ABM Models → LLM Upgrade</text>
+
+  <!-- Row 1: Schelling -->
+  <rect x="30" y="48" width="200" height="50" fill="#21262d" rx="6"/>
+  <text x="130" y="68" text-anchor="middle" class="label" fill="#f85149" font-weight="600">Schelling Segregation</text>
+  <text x="130" y="84" text-anchor="middle" class="small">Single tolerance threshold</text>
+  <line x1="235" y1="73" x2="270" y2="73" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="48" width="200" height="50" fill="#1c1e3a" rx="6" stroke="#6C63FF" stroke-width="1"/>
+  <text x="375" y="68" text-anchor="middle" class="label" fill="#6C63FF">NL Residential Reasoning</text>
+  <text x="375" y="84" text-anchor="middle" class="small">Income, schools, networks, culture</text>
+  <rect x="490" y="48" width="200" height="50" fill="#161b22" rx="6"/>
+  <text x="590" y="68" text-anchor="middle" class="small" fill="#3fb950">Qualitative trade-offs</text>
+  <text x="590" y="84" text-anchor="middle" class="small" fill="#3fb950">Person-specific preferences</text>
+
+  <!-- Row 2: Sugarscape -->
+  <rect x="30" y="108" width="200" height="50" fill="#21262d" rx="6"/>
+  <text x="130" y="128" text-anchor="middle" class="label" fill="#d29922" font-weight="600">Epstein Sugarscape</text>
+  <text x="130" y="144" text-anchor="middle" class="small">Gather-consume-reproduce</text>
+  <line x1="235" y1="133" x2="270" y2="133" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="108" width="200" height="50" fill="#1c1e3a" rx="6" stroke="#6C63FF" stroke-width="1"/>
+  <text x="375" y="128" text-anchor="middle" class="label" fill="#6C63FF">LLM Survival Strategy</text>
+  <text x="375" y="144" text-anchor="middle" class="small">Reasoning about resource allocation</text>
+  <rect x="490" y="108" width="200" height="50" fill="#161b22" rx="6"/>
+  <text x="590" y="128" text-anchor="middle" class="small" fill="#f85149">Attack rate >80% under</text>
+  <text x="590" y="144" text-anchor="middle" class="small" fill="#f85149">scarcity (2025 study)</text>
+
+  <!-- Row 3: Axelrod -->
+  <rect x="30" y="168" width="200" height="50" fill="#21262d" rx="6"/>
+  <text x="130" y="188" text-anchor="middle" class="label" fill="#58a6ff" font-weight="600">Axelrod Culture Model</text>
+  <text x="130" y="204" text-anchor="middle" class="small">Binary feature matching</text>
+  <line x1="235" y1="193" x2="270" y2="193" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="168" width="200" height="50" fill="#1c1e3a" rx="6" stroke="#6C63FF" stroke-width="1"/>
+  <text x="375" y="188" text-anchor="middle" class="label" fill="#6C63FF">NL Cultural Exchange</text>
+  <text x="375" y="204" text-anchor="middle" class="small">Semantic fusion and conflict</text>
+  <rect x="490" y="168" width="200" height="50" fill="#161b22" rx="6"/>
+  <text x="590" y="188" text-anchor="middle" class="small" fill="#3fb950">Language-level cultural</text>
+  <text x="590" y="204" text-anchor="middle" class="small" fill="#3fb950">transmission and drift</text>
+
+  <!-- Row 4: Prisoner's Dilemma -->
+  <rect x="30" y="228" width="200" height="50" fill="#21262d" rx="6"/>
+  <text x="130" y="248" text-anchor="middle" class="label" fill="#3fb950" font-weight="600">Prisoner's Dilemma</text>
+  <text x="130" y="264" text-anchor="middle" class="small">TFT, WSLS fixed strategies</text>
+  <line x1="235" y1="253" x2="270" y2="253" stroke="#6C63FF" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="275" y="228" width="200" height="50" fill="#1c1e3a" rx="6" stroke="#6C63FF" stroke-width="1"/>
+  <text x="375" y="248" text-anchor="middle" class="label" fill="#6C63FF">NL Negotiation</text>
+  <text x="375" y="264" text-anchor="middle" class="small">Concordia NeurIPS Contest</text>
+  <rect x="490" y="228" width="200" height="50" fill="#161b22" rx="6"/>
+  <text x="590" y="248" text-anchor="middle" class="small" fill="#3fb950">Cooperation without</text>
+  <text x="590" y="264" text-anchor="middle" class="small" fill="#3fb950">game-theoretic programming</text>
+
+  <!-- Column headers -->
+  <text x="130" y="302" text-anchor="middle" class="small" fill="#8b949e">Traditional Rules</text>
+  <text x="375" y="302" text-anchor="middle" class="small" fill="#6C63FF">LLM Upgrade</text>
+  <text x="590" y="302" text-anchor="middle" class="small" fill="#3fb950">New Dimensions</text>
+
+  <!-- Bottom -->
+  <line x1="50" y1="315" x2="680" y2="315" stroke="#30363d" stroke-width="0.5"/>
+  <text x="360" y="333" text-anchor="middle" class="small" fill="#8b949e">Each classic model gains qualitative reasoning, open-ended interaction, and emergent behavior</text>
+</svg>
