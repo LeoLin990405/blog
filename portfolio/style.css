@@ -82,13 +82,8 @@ b{font-weight:700;color:#f3eee5}
 /* essays: thinking in the age of AI */
 .essays{list-style:none;padding:0;margin:8px 0 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px 24px}
 .essays li{margin:0;display:flex;flex-direction:column}
-.card{margin:0 0 14px;aspect-ratio:3/4;border:1px solid var(--line2);position:relative;overflow:hidden}
-.card img{width:100%;height:100%;object-fit:cover;border:0}
-div.card{display:flex;flex-direction:column;justify-content:flex-end;padding:18px;
-  background:linear-gradient(170deg,rgba(217,130,43,.16),transparent 55%),linear-gradient(0deg,rgba(42,127,134,.12),transparent 60%),#121516}
-div.card::before{content:"";position:absolute;left:18px;top:22px;width:28px;height:1px;background:var(--amber)}
-.ck{font:500 11px/1.6 var(--mono);letter-spacing:.12em;color:var(--amber)}
-.ct{font:900 21px/1.4 var(--cjk);color:var(--ink);margin-top:6px}
+.card{margin:0 0 14px;aspect-ratio:3/4;border:1px solid var(--line2);position:relative;overflow:hidden;background:#fbfaf6}
+.card img{width:100%;height:100%;object-fit:cover;border:0;display:block}
 .eh{font-weight:700;font-size:15px;line-height:1.6;margin:0 0 8px}
 blockquote{margin:0;font-size:15.5px;line-height:1.8;color:var(--ink);border-left:1px solid var(--amber2);padding-left:12px}
 .stat{margin-top:18px}
@@ -174,9 +169,6 @@ footer{padding-top:112px;padding-bottom:80px;font-size:14px;color:var(--mute)}
   .essays{grid-template-columns:1fr;gap:28px}
   .essays li{display:grid;grid-template-columns:96px 1fr;gap:0 16px;align-items:start}
   .card{margin:0}
-  div.card{padding:10px}
-  div.card::before{left:10px;top:12px;width:18px}
-  .ct{font-size:12px;line-height:1.35}.ck{display:none}
   .dec div{grid-template-columns:1fr;gap:2px}
   .svgfig{padding:12px}
 }
@@ -186,32 +178,22 @@ footer{padding-top:112px;padding-bottom:80px;font-size:14px;color:var(--mute)}
 
 /* ---------- motion (only after assets/motion.js adds .js-motion to <html>) ---------- */
 @keyframes haze{0%{transform:translate3d(-2%,-1%,0) scale(1);opacity:.85}50%{opacity:1}100%{transform:translate3d(3%,2%,0) scale(1.06);opacity:.8}}
-@keyframes track{from{opacity:0;transform:translateX(calc(var(--i) * .55em))}to{opacity:1;transform:none}}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes fade{from{opacity:0}to{opacity:1}}
+/* Movement only. Text stays opaque the whole time, including during delays,
+   so a capture taken before the animation finishes still shows the page. */
+@keyframes track{from{transform:translateX(calc(var(--i) * .55em))}to{transform:none}}
+@keyframes rise{from{transform:translateY(12px)}to{transform:none}}
 @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes flick{0%{opacity:0}30%{opacity:.9}38%{opacity:.2}55%{opacity:1}64%{opacity:.5}100%{opacity:1}}
 @keyframes scan{0%{transform:translateX(-2vw);opacity:0}8%{opacity:1}92%{opacity:1}100%{transform:translateX(102vw);opacity:0}}
 
 .js-motion body::before{animation:haze 56s ease-in-out infinite alternate}
-/* hero: letters collapse from wide tracking, headline and manifesto fade in, once */
+/* hero: letters ease in from wide tracking; headline and manifesto rise. Both stay readable. */
 .js-motion .mega span{animation:track 2.6s var(--ease) both;animation-delay:calc(.15s + var(--i) * .05s)}
 .js-motion header h1{animation:rise 1.8s var(--ease) 1.1s both}
 .js-motion .manifesto{animation:rise 1.8s var(--ease) 1.6s both}
 .js-motion .hud::after{animation:draw 1.6s var(--ease) .1s both}
-.js-motion .hud span{animation:flick .7s steps(1,end) both}
-.js-motion .hud span:nth-child(1){animation-delay:.3s}.js-motion .hud span:nth-child(2){animation-delay:.55s}
-.js-motion .hud span:nth-child(3){animation-delay:.8s}.js-motion .hud span:nth-child(4){animation-delay:1.05s}
 .js-motion .scan{opacity:1}
 .js-motion .scan::before{animation:scan 7s cubic-bezier(.45,0,.55,1) 1.2s both}
-/* sections: fade + rise once when they enter the viewport */
-.js-motion main section,.js-motion footer{opacity:0;transform:translateY(18px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease)}
-.js-motion main section.in,.js-motion footer.in{opacity:1;transform:none}
-.js-motion main .tagline::after,.js-motion footer .tagline::after{transform:scaleX(0);transition:transform 1.8s var(--ease) .2s}
-.js-motion .in .tagline::after{transform:scaleX(1)}
-.js-motion main .tagline span,.js-motion footer .tagline span{opacity:0}
-.js-motion .in .tagline span{animation:flick .7s steps(1,end) both}
-.js-motion .in .tagline span:nth-child(1){animation-delay:.35s}.js-motion .in .tagline span:nth-child(2){animation-delay:.6s}
+/* Sections and the footer stay at full opacity. Nothing waits on scroll. */
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
@@ -241,8 +223,6 @@ footer{padding-top:112px;padding-bottom:80px;font-size:14px;color:var(--mute)}
   a{color:var(--ink);text-decoration-color:var(--cyan)}
   figure,.pair,tr,.map li,.edu,.rules li,.prin li,.covers,.essays li,.dec div{break-inside:avoid}
   figure img{filter:none;border-color:#bfb8ad}
-  div.card{background:#f4f1ec}
-  .ct{color:#1a1a1a}
   .covers{grid-template-columns:repeat(5,1fr)}
   .map li{grid-template-columns:11em 1fr 10em}
   .essays{grid-template-columns:repeat(3,1fr);gap:16px 20px}
