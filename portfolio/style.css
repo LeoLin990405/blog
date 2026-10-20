@@ -129,7 +129,7 @@ main section[id],footer[id]{scroll-margin-top:28px}
 .js main section[id],.js footer[id]{scroll-margin-top:calc(var(--bar-h) + 22px)}
 @media (min-width:1440px){
   .js main section[id],.js footer[id]{scroll-margin-top:28px}
-  .js .bar{background:transparent}
+  .js .bar{background:transparent;height:1px}
   .js .bar-btn,.js .bar-panel{display:none}
 }
 .tagline{padding-top:12px;margin-bottom:26px;max-width:none!important}
