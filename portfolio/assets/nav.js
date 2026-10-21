@@ -31,6 +31,20 @@
 
   d.classList.add('js');
 
+  /* make section headings programmatic focus targets so in-page navigation
+     lands in the content instead of dropping focus on <body> */
+  [].slice.call(document.querySelectorAll('main section h2, footer .me')).forEach(function (h) {
+    h.setAttribute('tabindex', '-1');
+  });
+
+  function focusTarget(id) {
+    var target = document.getElementById(id);
+    if (!target) return;
+    var h = target.querySelector('h2') || target.querySelector('.me');
+    if (!h) return;
+    try { h.focus({ preventScroll: true }); } catch (err) { h.focus(); }
+  }
+
   /* ---- desktop rail ---- */
   var rail = document.querySelector('[data-rail]');
   var railLinks = {};
@@ -192,6 +206,14 @@
     if (text) el.textContent = text;
     return el;
   }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a || a.classList.contains('skip')) return;
+    var id = (a.getAttribute('href') || '').slice(1);
+    if (!id || id === 'main' || id === 'top') return;
+    window.setTimeout(function () { focusTarget(id); }, 0);
+  });
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);

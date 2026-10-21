@@ -36,7 +36,7 @@ a{color:var(--cyan);text-decoration-thickness:1px;text-underline-offset:4px;text
 a:hover{text-decoration-color:var(--cyan)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
 ::selection{background:var(--ink);color:var(--bg)}
-main:focus{outline:none}
+main:focus,h2:focus,footer .me:focus{outline:none}
 .skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:80;background:var(--bg);color:var(--ink);padding:6px 10px;border:1px solid var(--ink);outline:none}
 .vh{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 b{font-weight:700;color:#f3eee5}
@@ -219,8 +219,9 @@ td:last-child,th:last-child{padding-right:0}
 .map .w::before{content:"→";position:absolute;left:0;top:0;font-family:var(--mono);color:var(--mute)}
 
 /* course notes */
-.covers{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:16px 0}
+.covers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:16px 0}
 .covers figure{margin:0}
+.inner-fig{max-width:300px;margin:28px auto 0}
 .covers figcaption{font-size:13px;line-height:1.6;color:var(--ink)}
 .credit{font-size:12.5px;color:var(--mute);line-height:1.7}
 .cta{display:inline-block;font-weight:700;border:1px solid var(--line2);padding:8px 16px;text-decoration:none;margin-top:6px}
@@ -241,7 +242,7 @@ footer{padding-top:104px;padding-bottom:76px;font-size:14px;color:var(--mute)}
   .map .w{padding-left:20px;margin-top:2px}
 }
 @media (max-width:860px){
-  .covers{grid-template-columns:repeat(3,1fr)}
+  .covers{grid-template-columns:repeat(2,1fr)}
   .essays{grid-template-columns:repeat(2,1fr)}
   .prin{grid-template-columns:1fr}
 }
@@ -273,6 +274,8 @@ footer{padding-top:104px;padding-bottom:76px;font-size:14px;color:var(--mute)}
   .card{margin:0}
   blockquote{font-size:14.5px}
   .svgfig{padding:12px}
+  #flickfic .svg-shapes text{font-size:17px}
+  #flickfic .svg-band text{font-size:15px}
   table.rubric,table.samples{border-top:0;display:block;margin-top:8px}
   table.rubric thead,table.samples thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
   table.rubric tbody,table.samples tbody,table.rubric tr,table.samples tr,table.rubric td,table.samples td{display:block;width:auto}
@@ -325,7 +328,7 @@ footer{padding-top:104px;padding-bottom:76px;font-size:14px;color:var(--mute)}
   .byline{color:#000}
   figure,.pair,tr,.map li,.edu,.rules li,.prin li,.covers,.essays li,.dec div,.rec{break-inside:avoid}
   figure img{filter:none;border-color:#bfb8ad}
-  .covers{grid-template-columns:repeat(5,1fr)}
+  .covers{grid-template-columns:repeat(4,1fr)}
   .essays{grid-template-columns:repeat(3,1fr);gap:16px 20px}
   .essays .card{display:none}
   .prin{grid-template-columns:1fr 1fr}
